@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Matemáticas en Emacs - org-page</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Mario Román" />
+    <meta name="description" content="Tomando apuntes de matemáticas en Emacs" />
+    <meta name="keywords" content="Emacs" />
+    <link rel="stylesheet" href="/media/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/media/css/prettify.css" type="text/css">
+  </head>
+  <body class="container">
+    <div>
+      <header class="masthead">
+        <h1 class="masthead-title"><a href="/">org-page</a></h1>
+        <p>static site generator</p>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/tags/">Tags</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="https://github.com/kelvinh/org-page">GitHub</a></li>
+          <li><a href="/rss.xml">RSS</a></li>
+        </ul>
+        <form method="get" id="searchform" action="//www.google.com/search">
+          <input type="text" class="field" name="q" id="s" placeholder="Search">
+          <input type="hidden" name="as_sitesearch" value="m42.github.io">
+        </form>
+      </header>
+    </div>
+
+<div>
+<div class="post">
+<h1>Matemáticas en Emacs</h1>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1">Apuntes a ordenador</h2>
+<div class="outline-text-2" id="text-orgheadline1">
+<p>
+Tomar apuntes de matemáticas con el ordenador es una tarea difícil. Hay que usar
+un montón de notación (símbolos, letras en otros alfabetos, índices...) que es
+qdifícil de controlar en un editor normal y además hacerlo a una velocidad 
+considerable para no quedarse atrás respecto del bolígrafo, que no tiene ese 
+problema. Además, los diagramas, dibujos, flechas o anotaciones no textuales que
+tomemos parecen imposibles de transcribir fielmente a un fichero si no es con
+mucho tiempo de por medio.
+</p>
+
+<p>
+Todos esos problemas no parece solucionarlos <b>Latex</b> de ninguna forma (al fin y
+al cabo, Latex estaría pensado para edición de libros, no para tomar apuntes).
+<b>Markdown</b> simplifica mucho el poder escribir, pero parece que pierde mucha 
+potencia respecto a Latex. No me imagino teniendo que escribir grandes listados
+de ejercicios en un sólo fichero de Markdown. Así que mi solución es usar 
+Emacs con <b>org-mode</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2">Ventajas de org-mode</h2>
+<div class="outline-text-2" id="text-orgheadline2">
+<p>
+<b>org-mode</b> tiene internamente un lenguaje de marcado similar al de markdown, con
+la ventaja para el usuario de Emacs de que está adaptado precisamente para 
+Emacs. Permite escribir fórmulas en Latex y exportar luego a <code>.tex</code> y <code>.pdf</code>, 
+controlando las opciones de Latex. 
+</p>
+
+<p>
+Una fórmula en Latex puede escribirse directamente en <b>org-mode</b> incluyéndola
+entre <code>\( ... \)</code>, si está dentro de una línea de texto; o entre <code>\[ ... \]</code>
+cuando queremos que se muestre aparte del texto.
+</p>
+
+<p>
+\[ \sum_{n=0}^\infty \frac{1}{2^n} \]
+</p>
+
+<p>
+Y cuando terminamos de escribirla podemos <a href="http://orgmode.org/worg/org-tutorials/org-latex-preview.html">previsualizarla</a> directamente con
+<code>C-c C-x C-l</code>. Así vamos comprobando que hemos escrito las fórmulas 
+correctamente y de paso nos acercamos peligrosamente a un editor <a href="https://es.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3">Zoom</h2>
+<div class="outline-text-2" id="text-orgheadline3">
+<p>
+Un problema menor al configurar todo esto es que las fórmulas previsualizadas
+me parecían demasiado pequeñas. Aunque estén en proporción con el texto, cuesta
+más leerlas; y cuando aumentamos el tamaño del texto con <code>C-x C-+</code>, las 
+fórmulas no se amplían con él. Para conseguir que lo hagan hay que incluir otro
+pequeño truco, mezcla de dos respuestas de <a href="http://emacs.stackexchange.com/questions/3387/how-to-enlarge-latex-fragments-in-org-mode-at-the-same-time-as-the-buffer-text">thisirs y Mark</a> en Stack Overflow:
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4">Aumentando la velocidad de escritura</h2>
+<div class="outline-text-2" id="text-orgheadline4">
+<p>
+Mi objetivo principal con todo esto era escribir matemáticas más rápidamente, así
+que <a href="http://emacs.stackexchange.com/questions/26322/math-autocompletion-in-org-mode">pregunté sobre autocompletado</a> y concluí en usar <code>latex-math-mode</code>. Esto 
+permite incluir comandos de Latex con atajos de teclado. En su configuración
+original usa el caracter <code>`</code> para acceder a ellos, así que <code>`-a</code> escribe <code>\alpha</code>.
+Yo he decidido cambiar el acento invertido, que ya cuesta dos pulsaciones en el
+teclado en español, por la <code>ç</code>, que no la suelo usar. Además de los que incluye
+el paquete por defecto, se pueden escribir atajos propios.
+</p>
+
+<p>
+Por otro lado, empecé a usar <b>yasnippets</b> en Emacs. Son cómodos, fáciles de programar,
+y me permiten simplificar tareas como escribir diagramas conmutativos o complejos
+simpliciales en pocos pasos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5">Diagramas conmutativos</h2>
+<div class="outline-text-2" id="text-orgheadline5">
+<p>
+Ahora estoy escribiendo sobre álgebra homológica y teoría de categorías, así que
+la mayoría de lo que escribo usa secuencias exactas y diagramas conmutativos.
+</p>
+
+<p>
+Para las secuencias exactas tengo simplemente
+una plantilla con <code>yasnippet</code>, que me deja 
+incluirlas escribiendo <code>complex_</code> y pulsando <code>&lt;tab&gt;</code>:
+</p>
+
+<p>
+Para los diagramas conmutativos, la solución es un poco más compleja. El
+paquete <b>tikz</b> de Latex es muy útil para escribirlos pero es demasiado complejo,
+así que existe <b>tikz-cd</b>, que simplifica su sintaxis para diagramas no 
+conmutativos. Para usarlo, hay que empezar por incluir en el archivo
+de configuración <code>init.el</code> las siguientes líneas: 
+</p>
+
+<p>
+Y además, en mi caso, tuve que cambiar el programa con el que generaba las
+imágenes. Parece funcionar sólo <b>imagemagick</b>:
+</p>
+</div>
+</div>
+
+</div>
+</div>
+    <div>
+      <div class="post-meta">
+        <span title="post date" class="post-info">2016-09-26</span>
+        <span title="last modification date" class="post-info">2016-09-26</span>
+        <span title="tags" class="post-info">N/A</span>
+        <span title="author" class="post-info">Mario Román</span>
+      </div>
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+          //var disqus_developer = 1;
+          var disqus_identifier = "/blog/2016/09/26/matematicas-en-emacs/";
+          var disqus_url = "http://m42.github.io/blog/2016/09/26/matematicas-en-emacs/";
+          var disqus_shortname = 'your_disqus_shortname';
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="//disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <div class="ds-thread"></div>
+        <script type="text/javascript">
+          var duoshuoQuery = {short_name:'your_duoshuo_shortname'};
+          (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+          })();
+        </script>
+      </section>
+      <script src="//code.jquery.com/jquery-latest.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="/media/js/main.js"></script>
+      <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'your_google_analytics_id']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      </script>
+      <div class="footer">
+        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x (<a href="http://orgmode.org">Org mode</a> 8.x)</p>
+        <p>
+          Copyright &copy; 2012 - <span id="footerYear"></span> <a href="mailto:mromang08 &lt;at&gt; gmail &lt;dot&gt; com">Mario Román</a>
+          &nbsp;&nbsp;-&nbsp;&nbsp;
+          Powered by <a href="https://github.com/kelvinh/org-page" target="_blank">org-page</a>
+          <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>
