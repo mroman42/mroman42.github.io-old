@@ -13,7 +13,7 @@
 
 Tomar apuntes de matemáticas con el ordenador es una tarea difícil. Hay que usar
 un montón de notación (símbolos, letras en otros alfabetos, índices...) que es
-difícil de controlar en un editor normal y además hacerlo a una velocidad 
+qdifícil de controlar en un editor normal y además hacerlo a una velocidad 
 considerable para no quedarse atrás respecto del bolígrafo, que no tiene ese 
 problema. Además, los diagramas, dibujos, flechas o anotaciones no textuales que
 tomemos parecen imposibles de transcribir fielmente a un fichero si no es con
