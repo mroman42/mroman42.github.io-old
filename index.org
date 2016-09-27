@@ -1,3 +1,8 @@
-#+TITLE: Index
+#+TITLE: M42
+#+AUTHOR: Mario Román
+#+EMAIL: mromang08@gmail.com
+#+URI: /
+#+LANGUAGE: en
+#+OPTIONS: H:3 num:nil toc:nil \n:nil @:t ::t |:t ^:nil -:t f:t *:t <:t
 
-This is the home page of .
+Hi! I'm Mario Román. I study Mathematics and Computer science in Granada.
