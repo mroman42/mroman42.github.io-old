@@ -17,13 +17,12 @@ extensible. Cada acción del editor constituye un comando sobre el
 intérprete, por lo que podemos reescribir sus comandos o crear nuevos
 comandos simplemente programando sobre el intérprete.
 
-{: .fig.med}
 [[https://github.com/libreim/blog/raw/post-emacs/images/emacs.png]]
-Emacs editando este mismo artículo
+/Emacs editando este mismo artículo en Markdown/
 
-Emacs sirve como IDE para la mayoría de lenguajes de programación, como
+Emacs sirve como IDE para la mayoría de lenguajes de programación y como
 editor para programación literaria y ciencia reproducible; se integra
-con git y con el sistema de archivos, y tiene extensiones disponibles
+con git y con el sistema de archivos y tiene extensiones disponibles
 para usarse como aplicación para organizar listas de tareas, leer el
 correo o servir como hoja de cálculo.
 
@@ -54,7 +53,7 @@ Emacs, puedo recomendar:
    en el que se tratan temas relacionados con Emacs.
 -  [[https://www.gnu.org/software/emacs/manual/][*GNU Emacs*]], la
    documentación oficial de Emacs.
--  [[https://elbauldelprogramador.com/chuleta-atajos-teclado-emacs/][*El baúl del programador*]] ha empeazado una recopilación colaborativa de
+-  [[https://elbauldelprogramador.com/chuleta-atajos-teclado-emacs/][*El baúl del programador*]], que ha empeazado una recopilación colaborativa de
    los comandos y paquetes más útiles para Emacs.
 
 #+BEGIN_HTML
@@ -262,18 +261,14 @@ reproducible o la programación literaria cuando Latex es demasiado
 complejo, ayudando además a manejar la bibliografía y los enlaces tanto
 externos como entre archivos.
 
-[[https://youtu.be/SzA2YODtgK4][*Getting started with org-mode* - /Harry
-Schwartz/]]
+[[https://youtu.be/SzA2YODtgK4][*Getting started with org-mode* - /Harry Schwartz/]]
 
 Especialmente útil para matemáticas es la
-[[http://orgmode.org/worg/org-tutorials/org-latex-preview.html][previsualización
-de Latex]] y el poder incluir los paquetes de la
-[[ftp://ftp.ams.org/pub/tex/doc/amsmath/amsldoc.pdf][AMS]] para marcar
-teoremas o definiciones.
+[[http://orgmode.org/worg/org-tutorials/org-latex-preview.html][previsualización de Latex]] y el poder incluir los paquetes de la
+[[ftp://ftp.ams.org/pub/tex/doc/amsmath/amsldoc.pdf][AMS]] para marcar teoremas o definiciones.
 
-{: .fig.med}
 [[https://github.com/libreim/blog/raw/post-emacs/images/org-math.png]]
-Apuntes de matemáticas en org-mode
+/Apuntes de matemáticas en org-mode/
 
 *** magit
     :PROPERTIES:
@@ -305,8 +300,8 @@ archivo de configuración:
 
 Las macros de teclado nos dejan grabar una secuencia de acciones y
 volver a repetirla tantas veces como sea necesaria. Se puede empezar a
-grabar con *"f3"* y terminar la grabación y repetirla tantas veces como
-sea necesario con *"f4"*.
+grabar con =f3= y terminar la grabación y repetirla tantas veces como
+sea necesario con =f4=.
 
 [[https://youtu.be/JfZ9fCHzkJw][*.Emacs #9 - Keyboard macros* -
 /jekor/]]
