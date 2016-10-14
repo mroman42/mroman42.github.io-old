@@ -1,7 +1,7 @@
 #+TITLE:       Aprendiendo Emacs
 #+AUTHOR:      Mario Román
 #+EMAIL:       mromang08@gmail.com
-#+DATE:        2016-10-14 Fri
+#+DATE:        2016-09-19 Mon
 #+URI:         /blog/%y/%m/%d/aprendiendo-emacs/
 #+KEYWORDS:    
 #+TAGS:        emacs

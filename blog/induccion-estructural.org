@@ -1,7 +1,7 @@
 #+TITLE:       Inducción Estructural
 #+AUTHOR:      Mario Román
 #+EMAIL:       mromang08@gmail.com
-#+DATE:        2016-10-14 Fri
+#+DATE:        2015-03-14 Sat
 #+URI:         /blog/%y/%m/%d/induccion-estructural
 #+KEYWORDS:    
 #+TAGS:        math, types

@@ -1,7 +1,7 @@
 #+TITLE:       Teoría de tipos
 #+AUTHOR:      Mario Román
 #+EMAIL:       mromang08@gmail.com
-#+DATE:        2016-10-14 Fri
+#+DATE:        2016-01-08 Fri
 #+URI:         /blog/%y/%m/%d/teoría-de-tipos
 #+KEYWORDS:    
 #+TAGS:        types, math
@@ -42,7 +42,6 @@ encontrarse en:
 
 Y varias demostraciones por inducción estructural implementadas en Coq
 en este repositorio sobre [[https://github.com/M42/recorridosArboles][*recorridos en árboles*]].
-
 
 ** Álgebra de tipos
 En un post anterior del blog de *LibreIM* hemos tratado el álgebra de
