@@ -10,8 +10,8 @@
 #+DESCRIPTION: Una descripción informal de la inducción estructural
 
 Normalmente aplicamos inducción sobre los números naturales, y cuando
-necesitamos aplicar inducción en otro contexto lo llevamos a los números
-naturales. Por ejemplo, si queremos demostrar una propiedad sobre los
+necesitamos aplicar inducción en otro contexto lo hacemos corresponder con los 
+números naturales. Por ejemplo, si queremos demostrar una propiedad sobre los
 árboles binarios, la demostraríamos por inducción sobre la altura del
 árbol. Pero el proceso de llevar todo a los naturales puede ser
 incómodo, tedioso y puede complicar la demostración innecesariamente. En
@@ -35,45 +35,35 @@ una inducción generalizada.  [1]
 Y podemos realizar inducción sobre cualquier conjunto con una relación
 bien fundada.
 
--  *Inducción noetheriana* :: Sea $$X$$ un conjunto bien fundado con
-   $$A \subset X$$. Si se cumple:
-
-$$ (y<x \Rightarrow y \in A) \Rightarrow x \in A $$
-
-Entonces $$A = X$$.
-
-#+BEGIN_HTML
-  <!--more-->
-#+END_HTML
+-  *Inducción noetheriana* :: Sea $X$ un conjunto bien fundado con
+   $A \subset X$. Si se cumple:
+   \[ (y<x \Rightarrow y \in A) \Rightarrow x \in A \]
+   Entonces $A = X$.
 
 ** Inducción sobre tipos
-   :PROPERTIES:
-   :CUSTOM_ID: inducción-sobre-tipos
-   :END:
 
 Ahora vamos a aplicar esto a teoría de tipos. Sea un tipo con sus
-constructores. Para todas las instancias constructibles del tipo (pueden
+constructores. Para todas las instancias constructibles del tipo (es decir,
+aquellas que pueden
 generarse en un número finito de pasos desde sus constructores),
 definimos un orden parcial:
 
--  *Orden constructivo* :: Para dos instancias del tipo: $$a,b::A$$,
-   $$b$$ se construye con $$a$$ si el constructor de $$b$$ toma a $$a$$
+-  *Orden constructivo* :: Para dos instancias del tipo: $a,b::A$,
+   $b$ se construye con $a$ si el constructor de $b$ toma a $a$
    como argumento. La clausura transitiva de esta relación forma un
    orden parcial:
-
-   $$ a \leq b \Rightarrow a \mbox{ se usa en la construcción de } b$$
+   \[ a \leq b \Rightarrow a \mbox{ se usa en la construcción de } b \]
 
 Y ahora tenemos una inducción sobre los constructores de los tipos, que
 describimos ahora.
 
--  *Inducción sobre tipos* :: Sea un tipo $$A$$ con constructores y sea
-   $$P :: A \rightarrow Bool $$ una propiedad. Siendo
-   $$a_1, a_2 \dots a_i :: A$$ argumentos del constructor, si se cumple
-   la condición de inducción para cada constructor $$C_i$$:
+-  *Inducción sobre tipos* :: Sea un tipo $A$ con constructores y sea
+   $P :: A \rightarrow Bool $ una propiedad. Siendo
+   $a_1, a_2 \dots a_i :: A$ argumentos del constructor, si se cumple
+   la condición de inducción para cada constructor $C_i$:
+   \[P(a_1) \wedge P(a_2) \wedge \dots P(a_i) \Rightarrow P(C_i(a_1,a_2,\dots,b_0,b_1\dots))\]
 
-   $$P(a_1) \wedge P(a_2) \wedge \dots P(a_i) \Rightarrow P(C_i(a_1,a_2,\dots,b_0,b_1\dots))$$
-
-Entonces $$a::A \Rightarrow P(a)$$
+Entonces $a::A \Rightarrow P(a)$
 
 ** Ejemplo 1: Naturales
    :PROPERTIES:
@@ -127,11 +117,9 @@ Es decir, si demostramos una propiedad para el árbol vacío y para un
 árbol sabiendo que la cumplen sus subárboles derecho e izquierdo, la
 hemos demostrado para todos los árboles binarios.
 
-En el repositorio
-[[https://github.com/M42/recorridosArboles][M42/recorridosArboles]] hay
+En el repositorio [[https://github.com/M42/recorridosArboles][M42/recorridosArboles]] hay
 varias demostraciones por inducción sobre árboles binarios, explicados
 en lenguaje natural y demostrados luego sobre el asistente de
 demostraciones Coq.
 
-[1] Sobre generalizaciones de la inducción
-    [[http://math.blogoverflow.com/2015/03/10/when-can-we-do-induction/]]
+[1] Post sobre generalizaciones de la inducción [[http://math.blogoverflow.com/2015/03/10/when-can-we-do-induction/][en Stack Overflow]].
