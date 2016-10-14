@@ -4,7 +4,7 @@
 #+DATE:        2016-09-26 Mon
 #+URI:         /blog/%y/%m/%d/matematicas-en-emacs/
 #+KEYWORDS:    Emacs
-#+TAGS:        
+#+TAGS:        emacs, math
 #+LANGUAGE:    es
 #+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
 #+DESCRIPTION: Tomando apuntes de matemáticas en Emacs
