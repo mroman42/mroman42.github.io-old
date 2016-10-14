@@ -33,8 +33,8 @@
 <h1>Inducción Estructural</h1>
 <p>
 Normalmente aplicamos inducción sobre los números naturales, y cuando
-necesitamos aplicar inducción en otro contexto lo llevamos a los números
-naturales. Por ejemplo, si queremos demostrar una propiedad sobre los
+necesitamos aplicar inducción en otro contexto lo hacemos corresponder con los 
+números naturales. Por ejemplo, si queremos demostrar una propiedad sobre los
 árboles binarios, la demostraríamos por inducción sobre la altura del
 árbol. Pero el proceso de llevar todo a los naturales puede ser
 incómodo, tedioso y puede complicar la demostración innecesariamente. En
@@ -64,43 +64,31 @@ bien fundada.
 </p>
 
 <dl class="org-dl">
-<dt><b>Inducción noetheriana</b></dt><dd>Sea \[X\] un conjunto bien fundado con
-\[A \subset X\]. Si se cumple:</dd>
-</dl>
-
-<p>
+<dt><b>Inducción noetheriana</b></dt><dd>Sea \(X\) un conjunto bien fundado con
+\(A \subset X\). Si se cumple:
 \[ (y<x \Rightarrow y \in A) \Rightarrow x \in A \]
-</p>
-
-<p>
-Entonces \[A = X\].
-</p>
-
-<!--more-->
+Entonces \(A = X\).</dd>
+</dl>
 </div>
 </div>
 
 <div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="inducción-sobre-tipos"><a id="orgheadline2"></a>Inducción sobre tipos</h2>
-<div class="outline-text-2" id="text-inducción-sobre-tipos">
+<h2 id="orgheadline2">Inducción sobre tipos</h2>
+<div class="outline-text-2" id="text-orgheadline2">
 <p>
 Ahora vamos a aplicar esto a teoría de tipos. Sea un tipo con sus
-constructores. Para todas las instancias constructibles del tipo (pueden
+constructores. Para todas las instancias constructibles del tipo (es decir,
+aquellas que pueden
 generarse en un número finito de pasos desde sus constructores),
 definimos un orden parcial:
 </p>
 
 <dl class="org-dl">
-<dt><b>Orden constructivo</b></dt><dd><p>
-Para dos instancias del tipo: \[a,b::A\],
-\[b\] se construye con \[a\] si el constructor de \[b\] toma a \[a\]
+<dt><b>Orden constructivo</b></dt><dd>Para dos instancias del tipo: \(a,b::A\),
+\(b\) se construye con \(a\) si el constructor de \(b\) toma a \(a\)
 como argumento. La clausura transitiva de esta relación forma un
 orden parcial:
-</p>
-
-<p>
-\[ a \leq b \Rightarrow a \mbox{ se usa en la construcción de } b\]
-</p></dd>
+\[ a \leq b \Rightarrow a \mbox{ se usa en la construcción de } b \]</dd>
 </dl>
 
 <p>
@@ -109,20 +97,15 @@ describimos ahora.
 </p>
 
 <dl class="org-dl">
-<dt><b>Inducción sobre tipos</b></dt><dd><p>
-Sea un tipo \[A\] con constructores y sea
-\[P :: A \rightarrow Bool \] una propiedad. Siendo
-\[a_1, a_2 \dots a_i :: A\] argumentos del constructor, si se cumple
-la condición de inducción para cada constructor \[C_i\]:
-</p>
-
-<p>
-\[P(a_1) \wedge P(a_2) \wedge \dots P(a_i) \Rightarrow P(C_i(a_1,a_2,\dots,b_0,b_1\dots))\]
-</p></dd>
+<dt><b>Inducción sobre tipos</b></dt><dd>Sea un tipo \(A\) con constructores y sea
+$P :: A &rarr; Bool $ una propiedad. Siendo
+\(a_1, a_2 \dots a_i :: A\) argumentos del constructor, si se cumple
+la condición de inducción para cada constructor \(C_i\):
+\[P(a_1) \wedge P(a_2) \wedge \dots P(a_i) \Rightarrow P(C_i(a_1,a_2,\dots,b_0,b_1\dots))\]</dd>
 </dl>
 
 <p>
-Entonces \[a::A \Rightarrow P(a)\]
+Entonces \(a::A \Rightarrow P(a)\)
 </p>
 </div>
 </div>
@@ -194,8 +177,7 @@ hemos demostrado para todos los árboles binarios.
 </p>
 
 <p>
-En el repositorio
-<a href="https://github.com/M42/recorridosArboles">M42/recorridosArboles</a> hay
+En el repositorio <a href="https://github.com/M42/recorridosArboles">M42/recorridosArboles</a> hay
 varias demostraciones por inducción sobre árboles binarios, explicados
 en lenguaje natural y demostrados luego sobre el asistente de
 demostraciones Coq.
@@ -207,8 +189,7 @@ demostraciones Coq.
 <div id="text-footnotes">
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
-Sobre generalizaciones de la inducción
-<a href="http://math.blogoverflow.com/2015/03/10/when-can-we-do-induction/">http://math.blogoverflow.com/2015/03/10/when-can-we-do-induction/</a>
+Post sobre generalizaciones de la inducción <a href="http://math.blogoverflow.com/2015/03/10/when-can-we-do-induction/">en Stack Overflow</a>.
 </p></div></div>
 
 
