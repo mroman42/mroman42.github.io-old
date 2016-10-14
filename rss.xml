@@ -4,23 +4,23 @@
     <title>Mario Román</title>
     <link>http://m42.github.io/</link>
     <description>M42 - mromang08@gmail.com</description>
-    <pubDate>Fri, 14 Oct 2016 17:37:46 CEST</pubDate>
-    <lastBuildDate>Fri, 14 Oct 2016 17:37:46 CEST</lastBuildDate>
+    <pubDate>Fri, 14 Oct 2016 23:18:28 CEST</pubDate>
+    <lastBuildDate>Fri, 14 Oct 2016 23:18:28 CEST</lastBuildDate>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>Org-page static site generator (https://github.com/kelvinh/org-page)</generator>
     <item>
       <title>Aprendiendo Emacs</title>
-      <link>http://m42.github.io/blog/2016/10/14/aprendiendo-emacs/</link>
+      <link>http://m42.github.io/blog/2016/09/19/aprendiendo-emacs/</link>
       <description><![CDATA[Un conjunto de enlaces de introducción a Emacs]]></description>
       <pubDate>2016-10-14</pubDate>
-      <guid>http://m42.github.io/blog/2016/10/14/aprendiendo-emacs/</guid>
+      <guid>http://m42.github.io/blog/2016/09/19/aprendiendo-emacs/</guid>
     </item>
     <item>
       <title>Inducción Estructural</title>
-      <link>http://m42.github.io/blog/2016/10/14/induccion-estructural</link>
+      <link>http://m42.github.io/blog/2015/03/14/induccion-estructural</link>
       <description><![CDATA[Una descripción informal de la inducción estructural]]></description>
       <pubDate>2016-10-14</pubDate>
-      <guid>http://m42.github.io/blog/2016/10/14/induccion-estructural</guid>
+      <guid>http://m42.github.io/blog/2015/03/14/induccion-estructural</guid>
     </item>
     <item>
       <title>Matemáticas en Emacs</title>
@@ -31,10 +31,10 @@
     </item>
     <item>
       <title>Teoría de tipos</title>
-      <link>http://m42.github.io/blog/2016/10/14/teoría-de-tipos</link>
+      <link>http://m42.github.io/blog/2016/01/08/teoría-de-tipos</link>
       <description><![CDATA[Enlaces de introducción a teoría de tipos]]></description>
       <pubDate>2016-10-14</pubDate>
-      <guid>http://m42.github.io/blog/2016/10/14/teoría-de-tipos</guid>
+      <guid>http://m42.github.io/blog/2016/01/08/teoría-de-tipos</guid>
     </item>
   </channel>
 </rss>
