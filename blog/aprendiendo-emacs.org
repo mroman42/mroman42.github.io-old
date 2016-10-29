@@ -311,16 +311,14 @@ sea necesario con =f4=.
    :CUSTOM_ID: elisp
    :END:
 
-[[https://www.gnu.org/software/emacs/manual/html_node/elisp/][Emacs
-Lisp]], o Elisp, es un lenguaje de programación diseñado específicamente
+[[https://www.gnu.org/software/emacs/manual/html_node/elisp/][Emacs Lisp]], o Elisp, es un lenguaje de programación diseñado específicamente
 para escribir un editor de texto. Facilita el tratamiento de texto y el
 manejo de archivos y buffers.
 
 Podemos escribir scripts en Elisp que se encarguen de tareas repetitivas
 en nuestro editor de texto y asignarlas a atajos de teclado o ampliarlo
 con más funcionalidad. Un tutorial básico sobre Elisp es
-[[http://emacs-doctor.com/learn-emacs-lisp-in-15-minutes.html][Learn
-Emacs Lisp in 15 minutes]].
+[[http://emacs-doctor.com/learn-emacs-lisp-in-15-minutes.html][Learn Emacs Lisp in 15 minutes]].
 
 ** Notas
 [1] Realmente solo puedo decir que a mí me funciona y que en general los
