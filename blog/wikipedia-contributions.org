@@ -3,8 +3,8 @@
 #+EMAIL:       mromang08@gmail.com
 #+DATE:        2016-10-29 Sat
 #+URI:         /blog/%y/%m/%d/wikipedia-contributions
-#+KEYWORDS:    wikipedia, math
-#+TAGS:        <TODO: insert your tags here>
+#+KEYWORDS:    
+#+TAGS:        libre, math
 #+LANGUAGE:    en
 #+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
 #+DESCRIPTION: A list of my contributions to Wikipedia
