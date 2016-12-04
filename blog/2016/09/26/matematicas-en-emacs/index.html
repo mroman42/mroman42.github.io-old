@@ -32,9 +32,9 @@
 <div class="post">
 <h1>Matemáticas en Emacs</h1>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1">Apuntes a ordenador</h2>
-<div class="outline-text-2" id="text-orgheadline1">
+<div id="outline-container-org72cb8cc" class="outline-2">
+<h2 id="org72cb8cc">Apuntes a ordenador</h2>
+<div class="outline-text-2" id="text-org72cb8cc">
 <p>
 Tomar apuntes de matemáticas con el ordenador es una tarea difícil por la
 notación (símbolos, letras en otros alfabetos, índices...)
@@ -53,9 +53,9 @@ Emacs con <b>org-mode</b>.
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2">Ventajas de org-mode</h2>
-<div class="outline-text-2" id="text-orgheadline2">
+<div id="outline-container-org7514da8" class="outline-2">
+<h2 id="org7514da8">Ventajas de org-mode</h2>
+<div class="outline-text-2" id="text-org7514da8">
 <p>
 <b>org-mode</b> tiene internamente un lenguaje de marcado similar al de markdown, con
 la ventaja para el usuario de Emacs de que está adaptado precisamente para 
@@ -81,9 +81,9 @@ correctamente a costa de acercarnos a un editor <a href="https://es.wikipedia.or
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3">Zoom</h2>
-<div class="outline-text-2" id="text-orgheadline3">
+<div id="outline-container-org8d6e3e0" class="outline-2">
+<h2 id="org8d6e3e0">Zoom</h2>
+<div class="outline-text-2" id="text-org8d6e3e0">
 <p>
 Un problema menor (y quizá sólo mío) al configurar todo esto fue que las fórmulas 
 previsualizadas me parecían demasiado pequeñas. Aunque estén en proporción con el texto, cuesta
@@ -93,12 +93,11 @@ pequeño truco, mezcla de dos respuestas de <a href="http://emacs.stackexchange.
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-lisp">(defun update-org-latex-fragment-scale ()
   (let ((text-scale-factor
-	 (expt text-scale-mode-step text-scale-mode-amount)))
+         (expt text-scale-mode-step text-scale-mode-amount)))
     (plist-put org-format-latex-options
-	       :scale (* 1.2 text-scale-factor)))
+               :scale (* 1.2 text-scale-factor)))
 )
 (add-hook
  'text-scale-mode-hook
@@ -108,9 +107,9 @@ pequeño truco, mezcla de dos respuestas de <a href="http://emacs.stackexchange.
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4">Aumentando la velocidad de escritura</h2>
-<div class="outline-text-2" id="text-orgheadline4">
+<div id="outline-container-org8a57d53" class="outline-2">
+<h2 id="org8a57d53">Aumentando la velocidad de escritura</h2>
+<div class="outline-text-2" id="text-org8a57d53">
 <p>
 Mi objetivo principal con todo esto era escribir matemáticas más rápidamente, así
 que <a href="http://emacs.stackexchange.com/questions/26322/math-autocompletion-in-org-mode">pregunté sobre autocompletado</a> y concluí en usar <code>latex-math-mode</code>. Esto 
@@ -129,9 +128,9 @@ simpliciales en pocos pasos.
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5">Diagramas conmutativos</h2>
-<div class="outline-text-2" id="text-orgheadline5">
+<div id="outline-container-org1532517" class="outline-2">
+<h2 id="org1532517">Diagramas conmutativos</h2>
+<div class="outline-text-2" id="text-org1532517">
 <p>
 Ahora estoy escribiendo sobre álgebra homológica y teoría de categorías, así que
 la mayoría de lo que escribo usa secuencias exactas y diagramas conmutativos.
@@ -144,7 +143,6 @@ incluirlas escribiendo <code>complex_</code> y pulsando <code>&lt;tab&gt;</code>
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-text"># -*- mode: snippet -*-
 # name: complex
 # key: complex_
@@ -167,7 +165,6 @@ de configuración <code>init.el</code> las siguientes líneas:
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-lisp">(add-to-list
  'org-latex-packages-alist '("" "tikz" t))
 (eval-after-load "preview"
@@ -184,7 +181,6 @@ imágenes. Por lo menos a mí, me parece funcionar sólo <b>imagemagick</b>:
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-lisp">(setq org-latex-create-formula-image-program 'imagemagick)
 </pre>
 </div>
@@ -204,18 +200,8 @@ imágenes. Por lo menos a mí, me parece funcionar sólo <b>imagemagick</b>:
       <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
       <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script src="/media/js/main.js"></script>
-      <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'your_google_analytics_id']);
-        _gaq.push(['_trackPageview']);
-        (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-      </script>
       <div class="footer">
-        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x (<a href="http://orgmode.org">Org mode</a> 8.x)</p>
+        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x (<a href="http://orgmode.org">Org mode</a> 9.x)</p>
         <p>
           Copyright &copy; 2012 - <span id="footerYear"></span> <a href="mailto:mromang08 &lt;at&gt; gmail &lt;dot&gt; com">Mario Román</a>
           &nbsp;&nbsp;-&nbsp;&nbsp;
