@@ -180,7 +180,6 @@ incluir en este archivo.
 
 [[https://youtu.be/mMcc0IF1hV0][*.Emacs #2 - Customizations and themes* - /jekor/]]
 
-
 ** Sistemas de paquetes
    :PROPERTIES:
    :CUSTOM_ID: sistemas-de-paquetes
