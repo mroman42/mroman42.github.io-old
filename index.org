@@ -8,3 +8,5 @@
 Hi! I'm Mario Román. I study Mathematics and Computer science in Granada.
 
 - GitHub: [[https://github.com/M42][@M42]].
+- Curriculum: [[https://m42.github.io/friggeri-cv-a4/cv.pdf][My CV on Github pages]].
+- Telegram: [[telegram.me/mroman42][@mroman42]].
