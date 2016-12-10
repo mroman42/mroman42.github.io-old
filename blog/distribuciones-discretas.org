@@ -23,7 +23,7 @@ y dibujar un histograma de cualquiera de ella.
 ** Componiendo distribuciones
 Lo más útil de esta idea para mí ha sido el poder generar unas distribuciones
 a partir de otras. La primera que genero es un dado de =n= caras usando la
-semilla:
+semilla. Aquí es donde se implementa el generador congruencial:
 
 #+BEGIN_SRC haskell
   dice :: Int -> Distribution Int
