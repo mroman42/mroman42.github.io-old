@@ -4,10 +4,17 @@
     <title>Mario Román</title>
     <link>http://m42.github.io/</link>
     <description>M42 - mromang08@gmail.com</description>
-    <pubDate>Sat, 10 Dec 2016 23:03:35 CET</pubDate>
-    <lastBuildDate>Sat, 10 Dec 2016 23:03:35 CET</lastBuildDate>
+    <pubDate>Sat, 10 Dec 2016 23:04:53 CET</pubDate>
+    <lastBuildDate>Sat, 10 Dec 2016 23:04:53 CET</lastBuildDate>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>Org-page static site generator (https://github.com/kelvinh/org-page)</generator>
+    <item>
+      <title>Distribuciones discretas con mónadas</title>
+      <link>http://m42.github.io/blog/2016/09/19/distribuciones-discretas/</link>
+      <description><![CDATA[Modelando distribuciones discretas con mónadas]]></description>
+      <pubDate>2016-12-10</pubDate>
+      <guid>http://m42.github.io/blog/2016/09/19/distribuciones-discretas/</guid>
+    </item>
     <item>
       <title>Aprendiendo Emacs</title>
       <link>http://m42.github.io/blog/2016/09/19/aprendiendo-emacs/</link>

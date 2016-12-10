@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Distribuciones discretas con mónadas - Mario Román</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Mario Román" />
+    <meta name="description" content="Modelando distribuciones discretas con mónadas" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="/media/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/media/css/prettify.css" type="text/css">
+  </head>
+  <body class="container">
+    <div>
+      <header class="masthead">
+        <h1 class="masthead-title"><a href="/">Mario Román</a></h1>
+        <p>M42 - mromang08@gmail.com</p>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/tags/">Tags</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="https://github.com/m42">GitHub</a></li>
+          <li><a href="/rss.xml">RSS</a></li>
+        </ul>
+        <form method="get" id="searchform" action="//www.google.com/search">
+          <input type="text" class="field" name="q" id="s" placeholder="Search">
+          <input type="hidden" name="as_sitesearch" value="m42.github.io">
+        </form>
+      </header>
+    </div>
+
+<div>
+<div class="post">
+<h1>Distribuciones discretas con mónadas</h1>
+
+<div id="outline-container-orgaee2c10" class="outline-2">
+<h2 id="orgaee2c10">El modelo</h2>
+<div class="outline-text-2" id="text-orgaee2c10">
+<p>
+Como parte de una serie de ejemplos sobre uso de mónadas, he escrito un
+poco de código para modelar distribuciones discretas usando mónadas.
+</p>
+
+<p>
+Por un lado, usa un <a href="https://math.dartmouth.edu/archive/m20f11/public_html/RANDOMNESS_LCG.pdf">generador congruencial lineal</a> para generar números
+aleatorios; y por otro, usa la mónada <a href="https://wiki.haskell.org/State_Monad">State</a> para pasar una semilla aleatoria
+de una función a otra que me permita seguir generado números aleatorios.
+</p>
+
+<p>
+Por último, aporta un método que deriva <a href="http://www.zvon.org/other/haskell/Outputprelude/Show_c.html">Show</a> para probar las distribuciones
+y dibujar un histograma de cualquiera de ella.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org339ca7f" class="outline-2">
+<h2 id="org339ca7f">Componiendo distribuciones</h2>
+<div class="outline-text-2" id="text-org339ca7f">
+<p>
+Lo más útil de esta idea para mí ha sido el poder generar unas distribuciones
+a partir de otras. La primera que genero es un dado de <code>n</code> caras usando la
+semilla:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">dice :: Int -&gt; Distribution Int
+dice n = state (\s -&gt; (s `mod` n + 1, 16807*s `mod` 2147483647))
+</pre>
+</div>
+
+<p>
+Que funciona como una distribución uniforme:
+</p>
+
+<pre class="example">
+&gt;&gt;&gt; dice 6
+
+1:	 ################
+2:	 ################
+3:	 ################
+4:	 ################
+5:	 ################
+6:	 ################
+</pre>
+
+<p>
+Pero desde ella puedo generar fácilmente otras usando funciones que compongan
+distribuciones. Un ejemplo es usar <code>(⊕) = liftM2 (+)</code> para sumar dados:
+</p>
+
+<pre class="example">
+&gt;&gt;&gt; dice 6 ⊕ dice 6
+
+2:	 #####
+3:	 ##########
+4:	 ###############
+5:	 ####################
+6:	 ##########################
+7:	 ##############################
+8:	 #########################
+9:	 ####################
+10:	 ###############
+11:	 ##########
+12:	 #####
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orga506f11" class="outline-2">
+<h2 id="orga506f11">Otras distribuciones</h2>
+<div class="outline-text-2" id="text-orga506f11">
+<p>
+Y puedo crear otras distribuciones similares a partir de ellas, como la
+distribución de <b>Bernoulli</b> y la <b>Binomial</b> usando funciones para composición
+de mónadas:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">bernoulli :: Double -&gt; Distribution Int
+bernoulli p = do
+  sample &lt;- dice 1000000
+  if (fromIntegral sample / 1000000.0 &lt; p)
+    then return 1
+    else return 0
+
+binomial :: Int -&gt; Double -&gt; Distribution Int
+binomial k p = sum &lt;$&gt; replicateM k (bernoulli p)
+</pre>
+</div>
+
+<p>
+Lo que me gusta de este código es que dejamos a la estructura de mónada encargarse
+internamente de el paso de la semilla de aleatoriedad y podemos componer distribuciones
+más simples para crear distribuciones más complejas.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org115eb8f" class="outline-2">
+<h2 id="org115eb8f">El código</h2>
+<div class="outline-text-2" id="text-org115eb8f">
+<p>
+El código completo se presenta aquí. Es un pequeño código que dejé de ejemplo
+pero que seguramente pueda mejorarse bastante; lo dejo aquí como guión para esta 
+idea:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE TypeSynonymInstances #-}
+{-
+En este archivo vamos a usar mónadas para definir distribuciones
+discretas de probabilidad y aplicar operaciones algebraicas sobre ellas.
+-}
+import Control.Monad.State
+
+-- Generación aleatoria
+-- Para generar números pseudoaleatorios usaremos LCGs. La idea es tener
+-- un dado que nos dé una distribución de probabilidad uniforme dada una
+-- semilla y nos devuelva el resultado de la tirada y una nueva semilla
+-- aleatoria. Buscamos que un dado de seis caras sea, por ejemplo:
+--
+--   dice 6 :: Seed -&gt; (Int, Seed)
+--
+-- Si quisiéramos tirar dos dados, tendríamos que tomar la semilla resultante
+-- del primer lanzamiento y pasarla al segundo; algo así:
+--
+--   let (a,newseed) = dice 6 seed
+--   let (b,_)       = dice 6 newseed
+--   print [a,b]
+--
+-- Pero esto se hace demasiado complejo. La semilla, en el fondo, es un
+-- estado, así que podemos modelarla con la mónada State. Cada lanzamiento
+-- será de la forma:
+--
+--   State Seed a   ===   Seed -&gt; (a, Seed)
+--
+-- Luego podemos llamar a la distribución: Distribution a = State Seed a, y
+-- trabajar con ella usando las funciones normales de mónadas.
+type Seed = Int
+type Distribution = State Seed
+
+
+
+-- Nuestra primera distribución es un dado de "n" lados que usa internamente un
+-- generador de números aleatorios.
+dice :: Int -&gt; Distribution Int
+dice n = state (\s -&gt; (s `mod` n + 1, 16807*s `mod` 2147483647))
+
+-- Una moneda es un dado de dos caras
+coin :: Distribution Int
+coin = dice 2
+
+-- Estas funciones pueden ser llamadas con la mónada estado, dada una
+-- semilla inicial, devuelven el resultado y la nueva semilla:
+--
+-- λ&gt; runState (dice 6) 1
+-- (2,16807)
+-- λ&gt; runState (dice 6) 16807
+-- (2,282475249)
+--
+-- El usar composición con mónadas nos ahorraba controlar los errores
+-- en el primer caso, aquí nos ahorra controlar el cambio de semilla,
+-- por ejemplo: para lanzar dos dados y hacer que la semilla se pase
+-- internamente.
+twodices' :: Distribution Int
+twodices' = do
+  a &lt;- dice 6
+  b &lt;- dice 6
+  return (a+b)
+
+(⊕) :: Distribution Int -&gt; Distribution Int -&gt; Distribution Int
+(⊕) = liftM2 (+)
+(⊗) :: Distribution Int -&gt; Distribution Int -&gt; Distribution Int
+(⊗) = liftM2 (*)
+
+twodices :: Distribution Int
+twodices = dice 6 ⊕ dice 6
+
+-- Igual que hago esto, podría hacer:
+--
+--   foldr (⊕) (return 0) [dice 6,dice 6,dice 6]
+--   foldr (⊕) (return 0) (replicate 10 (dice 6))
+--
+-- Que da un resultado que se aproxima a una distribución normal.
+
+-- Ahora, desde ella, podemos crear otras distribuciones. La distribución de
+-- bernoulli sería la de una moneda trucada donde una cara tiene probabilidad
+-- p y la otra tiene probabilidad (1-p).
+bernoulli :: Double -&gt; Distribution Int
+bernoulli p = do
+  sample &lt;- dice 1000000
+  if (fromIntegral sample / 1000000.0 &lt; p)
+    then return 1
+    else return 0
+
+-- La distribución binomial es la suma de k distribuciones de Bernoulli
+binomial :: Int -&gt; Double -&gt; Distribution Int
+binomial k p = sum &lt;$&gt; replicateM k (bernoulli p)
+
+-- La distribución constante y otra forma de escribir la distribución
+-- binomial, de manera algebraica.
+constant :: Int -&gt; Distribution Int
+constant n = return n
+
+binomial' :: Int -&gt; Double -&gt; Distribution Int
+binomial' k p = foldr (⊕) (constant 0) (replicate k (bernoulli p))
+
+
+
+-- Muestra la distribución. Los detalles de implementación no son interesantes.
+-- Hemos usado  TypeSynonymInstances para simplificar el proceso de sobrecargar
+-- la instancia de Show y poder dibujar directamente por la pantalla las
+-- demostraciones.
+instance Show (State Seed Int) where
+  show = showdist
+
+showdist :: Distribution Int -&gt; String
+showdist dist = unlines $ map counter [minimum samples..maximum samples]
+  where samples = fst $ runState (replicateM 50000 dist) 1
+        counter n = show n ++ ":\t " ++ replicate ((count n samples) `div` (3000 `div` range)) '#'
+        range = maximum samples - minimum samples + 1
+
+count :: Eq a =&gt; a -&gt; [a] -&gt; Int
+count x = length . filter (x==)
+
+
+main :: IO ()
+main = return ()
+</pre>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+    <div>
+      <div class="post-meta">
+        <span title="post date" class="post-info">2016-09-19</span>
+        <span title="last modification date" class="post-info">2016-12-10</span>
+        <span title="tags" class="post-info"><a href="/tags/emacs/">emacs</a></span>
+        <span title="author" class="post-info">Mario Román</span>
+      </div>
+      <script src="//code.jquery.com/jquery-latest.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="/media/js/main.js"></script>
+      <div class="footer">
+        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x (<a href="http://orgmode.org">Org mode</a> 9.x)</p>
+        <p>
+          Copyright &copy; 2012 - <span id="footerYear"></span> <a href="mailto:mromang08 &lt;at&gt; gmail &lt;dot&gt; com">Mario Román</a>
+          &nbsp;&nbsp;-&nbsp;&nbsp;
+          Powered by <a href="https://github.com/kelvinh/org-page" target="_blank">org-page</a>
+          <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>
