@@ -32,9 +32,9 @@
 <div class="post">
 <h1>Distribuciones discretas con mónadas</h1>
 
-<div id="outline-container-orgaee2c10" class="outline-2">
-<h2 id="orgaee2c10">El modelo</h2>
-<div class="outline-text-2" id="text-orgaee2c10">
+<div id="outline-container-org71cad49" class="outline-2">
+<h2 id="org71cad49">El modelo</h2>
+<div class="outline-text-2" id="text-org71cad49">
 <p>
 Como parte de una serie de ejemplos sobre uso de mónadas, he escrito un
 poco de código para modelar distribuciones discretas usando mónadas.
@@ -53,13 +53,13 @@ y dibujar un histograma de cualquiera de ella.
 </div>
 </div>
 
-<div id="outline-container-org339ca7f" class="outline-2">
-<h2 id="org339ca7f">Componiendo distribuciones</h2>
-<div class="outline-text-2" id="text-org339ca7f">
+<div id="outline-container-orgbf4c52e" class="outline-2">
+<h2 id="orgbf4c52e">Componiendo distribuciones</h2>
+<div class="outline-text-2" id="text-orgbf4c52e">
 <p>
 Lo más útil de esta idea para mí ha sido el poder generar unas distribuciones
 a partir de otras. La primera que genero es un dado de <code>n</code> caras usando la
-semilla:
+semilla. Aquí es donde se implementa el generador congruencial:
 </p>
 
 <div class="org-src-container">
@@ -106,9 +106,9 @@ distribuciones. Un ejemplo es usar <code>(⊕) = liftM2 (+)</code> para sumar da
 </div>
 </div>
 
-<div id="outline-container-orga506f11" class="outline-2">
-<h2 id="orga506f11">Otras distribuciones</h2>
-<div class="outline-text-2" id="text-orga506f11">
+<div id="outline-container-org510cddf" class="outline-2">
+<h2 id="org510cddf">Otras distribuciones</h2>
+<div class="outline-text-2" id="text-org510cddf">
 <p>
 Y puedo crear otras distribuciones similares a partir de ellas, como la
 distribución de <b>Bernoulli</b> y la <b>Binomial</b> usando funciones para composición
@@ -136,9 +136,9 @@ más simples para crear distribuciones más complejas.
 </div>
 </div>
 
-<div id="outline-container-org115eb8f" class="outline-2">
-<h2 id="org115eb8f">El código</h2>
-<div class="outline-text-2" id="text-org115eb8f">
+<div id="outline-container-org66f20ee" class="outline-2">
+<h2 id="org66f20ee">El código</h2>
+<div class="outline-text-2" id="text-org66f20ee">
 <p>
 El código completo se presenta aquí. Es un pequeño código que dejé de ejemplo
 pero que seguramente pueda mejorarse bastante; lo dejo aquí como guión para esta 
