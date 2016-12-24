@@ -88,6 +88,4 @@ El código completo se presenta aquí. Es un pequeño código que dejé de ejemp
 pero que seguramente pueda mejorarse bastante; lo dejo aquí como guión para esta 
 idea:
 
-#+BEGIN_HTML
-<script src="https://gist.github.com/M42/7d9d2ecf174bad73804e67fd5cb8de72.js"></script>
-#+END_HTML
+#+HTML: <script src="https://gist.github.com/M42/7d9d2ecf174bad73804e67fd5cb8de72.js"></script>
