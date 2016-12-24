@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Distribuciones discretas con mónadas - Mario Román</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Mario Román" />
+    <meta name="description" content="Modelando distribuciones discretas con mónadas" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="/media/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/media/css/prettify.css" type="text/css">
+  </head>
+  <body class="container">
+    <div>
+      <header class="masthead">
+        <h1 class="masthead-title"><a href="/">Mario Román</a></h1>
+        <p>M42 - mromang08@gmail.com</p>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/tags/">Tags</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="https://github.com/m42">GitHub</a></li>
+          <li><a href="/rss.xml">RSS</a></li>
+        </ul>
+        <form method="get" id="searchform" action="//www.google.com/search">
+          <input type="text" class="field" name="q" id="s" placeholder="Search">
+          <input type="hidden" name="as_sitesearch" value="m42.github.io">
+        </form>
+      </header>
+    </div>
+
+<div>
+<div class="post">
+<h1>Distribuciones discretas con mónadas</h1>
+
+<div id="outline-container-org3cfe401" class="outline-2">
+<h2 id="org3cfe401">El modelo</h2>
+<div class="outline-text-2" id="text-org3cfe401">
+<p>
+Como parte de una serie de ejemplos sobre uso de mónadas, he escrito un
+poco de código para modelar distribuciones discretas usando mónadas.
+</p>
+
+<p>
+Por un lado, usa un <a href="https://math.dartmouth.edu/archive/m20f11/public_html/RANDOMNESS_LCG.pdf">generador congruencial lineal</a> para generar números
+aleatorios; y por otro, usa la mónada <a href="https://wiki.haskell.org/State_Monad">State</a> para pasar una semilla aleatoria
+de una función a otra que me permita seguir generado números aleatorios.
+</p>
+
+<p>
+Por último, aporta un método que deriva <a href="http://www.zvon.org/other/haskell/Outputprelude/Show_c.html">Show</a> para probar las distribuciones
+y dibujar un histograma de cualquiera de ella.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3b9a123" class="outline-2">
+<h2 id="org3b9a123">Componiendo distribuciones</h2>
+<div class="outline-text-2" id="text-org3b9a123">
+<p>
+Lo más útil de esta idea para mí ha sido el poder generar unas distribuciones
+a partir de otras. La primera que genero es un dado de <code>n</code> caras usando la
+semilla. Aquí es donde se implementa el generador congruencial:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">dice :: Int -&gt; Distribution Int
+dice n = state (\s -&gt; (s `mod` n + 1, 16807*s `mod` 2147483647))
+</pre>
+</div>
+
+<p>
+Que funciona como una distribución uniforme:
+</p>
+
+<pre class="example">
+&gt;&gt;&gt; dice 6
+
+1:	 ################
+2:	 ################
+3:	 ################
+4:	 ################
+5:	 ################
+6:	 ################
+</pre>
+
+<p>
+Pero desde ella puedo generar fácilmente otras usando funciones que compongan
+distribuciones. Un ejemplo es usar <code>(⊕) = liftM2 (+)</code> para sumar dados:
+</p>
+
+<pre class="example">
+&gt;&gt;&gt; dice 6 ⊕ dice 6
+
+2:	 #####
+3:	 ##########
+4:	 ###############
+5:	 ####################
+6:	 ##########################
+7:	 ##############################
+8:	 #########################
+9:	 ####################
+10:	 ###############
+11:	 ##########
+12:	 #####
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6eeb567" class="outline-2">
+<h2 id="org6eeb567">Otras distribuciones</h2>
+<div class="outline-text-2" id="text-org6eeb567">
+<p>
+Y puedo crear otras distribuciones similares a partir de ellas, como la
+distribución de <b>Bernoulli</b> y la <b>Binomial</b> usando funciones para composición
+de mónadas:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">bernoulli :: Double -&gt; Distribution Int
+bernoulli p = do
+  sample &lt;- dice 1000000
+  if (fromIntegral sample / 1000000.0 &lt; p)
+    then return 1
+    else return 0
+
+binomial :: Int -&gt; Double -&gt; Distribution Int
+binomial k p = sum &lt;$&gt; replicateM k (bernoulli p)
+</pre>
+</div>
+
+<p>
+Lo que me gusta de este código es que dejamos a la estructura de mónada encargarse
+internamente de el paso de la semilla de aleatoriedad y podemos componer distribuciones
+más simples para crear distribuciones más complejas.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org90cf58a" class="outline-2">
+<h2 id="org90cf58a">El código</h2>
+<div class="outline-text-2" id="text-org90cf58a">
+<p>
+El código completo se presenta aquí. Es un pequeño código que dejé de ejemplo
+pero que seguramente pueda mejorarse bastante; lo dejo aquí como guión para esta 
+idea:
+</p>
+
+<div class="HTML">
+<p>
+&lt;script src="<a href="https://gist.github.com/M42/7d9d2ecf174bad73804e67fd5cb8de72.js">https://gist.github.com/M42/7d9d2ecf174bad73804e67fd5cb8de72.js</a>"&gt;&lt;/script&gt;
+</p>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+    <div>
+      <div class="post-meta">
+        <span title="post date" class="post-info">2016-12-10</span>
+        <span title="last modification date" class="post-info">2016-12-24</span>
+        <span title="tags" class="post-info"><a href="/tags/emacs/">emacs</a></span>
+        <span title="author" class="post-info">Mario Román</span>
+      </div>
+      <script src="//code.jquery.com/jquery-latest.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="/media/js/main.js"></script>
+      <div class="footer">
+        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x (<a href="http://orgmode.org">Org mode</a> 9.x)</p>
+        <p>
+          Copyright &copy; 2012 - <span id="footerYear"></span> <a href="mailto:mromang08 &lt;at&gt; gmail &lt;dot&gt; com">Mario Román</a>
+          &nbsp;&nbsp;-&nbsp;&nbsp;
+          Powered by <a href="https://github.com/kelvinh/org-page" target="_blank">org-page</a>
+          <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>
