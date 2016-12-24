@@ -4,8 +4,8 @@
     <title>Mario Román</title>
     <link>http://m42.github.io/</link>
     <description>M42 - mromang08@gmail.com</description>
-    <pubDate>Sat, 24 Dec 2016 19:40:12 CET</pubDate>
-    <lastBuildDate>Sat, 24 Dec 2016 19:40:12 CET</lastBuildDate>
+    <pubDate>Sat, 24 Dec 2016 20:02:56 CET</pubDate>
+    <lastBuildDate>Sat, 24 Dec 2016 20:02:56 CET</lastBuildDate>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>Org-page static site generator (https://github.com/kelvinh/org-page)</generator>
     <item>
@@ -14,6 +14,13 @@
       <description><![CDATA[Modelando distribuciones discretas con mónadas]]></description>
       <pubDate>2016-12-24</pubDate>
       <guid>http://m42.github.io/blog/2016/12/10/distribuciones-discretas/</guid>
+    </item>
+    <item>
+      <title>Mónadas</title>
+      <link>http://m42.github.io/blog/2016/12/24/monadas/</link>
+      <description><![CDATA[¡Otra! introducción a las mónadas.]]></description>
+      <pubDate>2016-12-24</pubDate>
+      <guid>http://m42.github.io/blog/2016/12/24/monadas/</guid>
     </item>
     <item>
       <title>Aprendiendo Emacs</title>
