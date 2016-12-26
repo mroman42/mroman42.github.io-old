@@ -53,8 +53,6 @@ Que es una muy buena introducción al uso de las mónadas en programación
 funcional.
 
 *** Calculando raíces cuadradas
-
-
 Por ejemplo, supongamos que intentamos sacar raíces cuadradas en los
 reales usando el [[https://en.wikipedia.org/wiki/Integer_square_root#Algorithm][método de Newton]]. Si intentamos calcular $\sqrt{n}$, 
 podemos tomar a cada paso la aproximación:
@@ -84,7 +82,7 @@ listas infinitas en Haskell y del método de Newton, basado en la función
 #+END_SRC
 
 Ahora imaginemos que usamos esta raíz cuadrada recién definida para
-solucionar una ecuación de segundo grado $$x^2 + bx + c = 0$$:
+solucionar una ecuación de segundo grado $x^2 + bx + c = 0$:
 
 \[ x = \frac{-b \pm \sqrt{b^2 - 4c}}{2} \]
 
@@ -92,15 +90,15 @@ Podemos definir una estructura de datos =QPol= para el polinomio y una
 función que lo resuelva obteniendo sus dos raíces:
 
 #+BEGIN_SRC haskell
-    data QPol = QPol Float Float Float
+  data QPol = QPol Float Float Float
 
-    instance Show QPol where
-        show (Qpol a b c) = show a ++ "x² + " ++ show b ++ "x + " show c
+  instance Show QPol where
+      show (Qpol a b c) = show a ++ "x² + " ++ show b ++ "x + " show c
 
-    solve :: QPol -> (Float,Float)
-    solve (QPol a b c) = (sol1 sol2)
-        where sol1 = ((-b) + sqroot(b*b-4*c*a))/(2*a)
-          sol2 = ((-b) - sqroot(b*b-4*c*a))/(2*a)
+  solve :: QPol -> (Float,Float)
+  solve (QPol a b c) = (sol1 sol2)
+      where sol1 = ((-b) + sqroot(b*b-4*c*a))/(2*a)
+            sol2 = ((-b) - sqroot(b*b-4*c*a))/(2*a)
 #+END_SRC
 
 Y podemos comprobar que funciona:
@@ -226,17 +224,17 @@ puramente funcionales. Existen críticas al uso de esta notación. [1]
 *** Mónadas como clase de tipos
 Las mónadas en Haskell están definidas como una clase de tipos teniendo:
 
--  Un *constructor* de tipos =m :: * -> *=, que para cada tipo =a=,
+-  Un *constructor* de tipos ~m ∷ * -> *~, que para cada tipo =a=,
    devuelve una mónada conteniéndolo, =m a=.
--  Una *función* =return :: a -> m a=, que para todo elemento de tipo
+-  Una *función* ~return ∷ a -> m a~, que para todo elemento de tipo
    =a=, devuelve una mónada que lo contiene.
--  Una *función* =(>>=) :: m a -> (a -> m b) -> m b=, que dada una
+-  Una *función* ~(>>=) ∷ m a -> (a -> m b) -> m b~, que dada una
    mónada y una función que se aplique sobre su interior y devuelva otra
    mónada, devuelve la mónada resultante. Sirve como composición de
    funciones monádicas.
 
 La existencia de la última función equivale a la existencia de otras dos
-funciones =fmap :: (a -> b) -> m a -> m b= y =join :: m (m a) -> m a=.
+funciones =fmap ∷ (a -> b) -> m a -> m b= y =join ∷ m (m a) -> m a=.
 
 Nótese entonces que para ser mónada, una clase de tipos debe ser primero
 un funtor. Dentro de los funtores que conocemos, podemos reconocer
@@ -244,18 +242,18 @@ algunas mónadas, incluyendo la mónada =Maybe= que hemos usado hasta
 ahora:
 
 #+BEGIN_SRC haskell
-    -- Return de la mónada Maybe
-    return x = Just x
+  -- Return de la mónada Maybe
+  return x = Just x
 
-    -- Bind de la mónada Maybe
-    (Just x) >>= k = k x
-    Nothing  >>= _ = Nothing
+  -- Bind de la mónada Maybe
+  (Just x) >>= k = k x
+  Nothing  >>= _ = Nothing
 
-    -- Return de la mónada List
-    return x = [x]
+  -- Return de la mónada List
+  return x = [x]
 
-    -- Bind de la mónada List
-    xs >>= f = [y | x <- xs, y <- f x]
+  -- Bind de la mónada List
+  xs >>= f = [y | x <- xs, y <- f x]
 #+END_SRC
 
 Puedes empezar a leer tutoriales sobre el uso de las mónadas en Haskell
@@ -510,7 +508,7 @@ El primer ejemplo de esto son los *funtores*. En Haskell, un funtor se
 define como:
 
 #+BEGIN_SRC haskell
-    class Functor f where 
+  class Functor f where 
     fmap :: (a -> b) -> f a -> f b 
 #+END_SRC
 
