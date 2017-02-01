@@ -171,7 +171,7 @@ table th.right, table td.right {
 /* body */
 .container {
     margin: 0 auto;
-    max-width: 770px;
+    max-width: 1000px;
 }
 /* head */
 .masthead {
@@ -179,7 +179,7 @@ table th.right, table td.right {
 }
 .masthead:after {
     display: block;
-    content: '----------------------------------------------------------------';
+    content: '------------------------------------------------------------------------------------';
     margin: 10px 0;
     color: #ccc;
 }
@@ -243,7 +243,7 @@ table th.right, table td.right {
 }
 .post:after {
     display: block;
-    content: "----------------------------------------------------------------";
+    content: '------------------------------------------------------------------------------------';
     color: #ccc;
 }
 .post img {
@@ -286,7 +286,7 @@ table th.right, table td.right {
     content: "\2223 \00a0";
 }
 .post-meta:after {
-    content: "----------------------------------------------------------------";
+    content: '------------------------------------------------------------------------------------';
     display: block;
     margin-top: -1px;
     color: #ccc;
