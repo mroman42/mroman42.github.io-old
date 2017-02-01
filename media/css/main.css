@@ -115,8 +115,8 @@ pre {
     margin: 0 0 14px;
     padding: 15px;
     border-radius: 3px 3px 3px 3px;
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 14px;
+    line-height: 20px;
     background-color: #f5f5f5;
     white-space: pre;
     white-space: pre-wrap;
@@ -366,8 +366,8 @@ table th.right, table td.right {
     /* Increase body padding and font-sizes */
     body {
         padding: 30px;
-        font-size: 18px;
-        line-height: 1.75;
+        font-size: 14px;
+        line-height: 1.5;
     }
     h1:before, h2:before, h3:before {
         display: inline;
