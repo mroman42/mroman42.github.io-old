@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>Wikipedia contributions - Mario Román</title>
+    <title>Yoneda Lemma - Mario Román</title>
     <meta charset="utf-8" />
     <meta name="author" content="Mario Román" />
-    <meta name="description" content="A list of my contributions to Wikipedia" />
+    <meta name="description" content="An elementary proof of the Yoneda Lemma" />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="/media/css/main.css" type="text/css">
     <link rel="stylesheet" href="/media/css/prettify.css" type="text/css">
@@ -32,28 +32,82 @@
 
 <div>
 <div class="post">
-<h1>Wikipedia contributions</h1>
+<h1>Yoneda Lemma</h1>
+
+<div id="outline-container-org4e08c49" class="outline-2">
+<h2 id="org4e08c49">Lema de Yoneda</h2>
+<div class="outline-text-2" id="text-org4e08c49">
 <p>
-The majority of my math-related contributions to Wikipedia are translations from the English language
-Wikipedia to the Spanish one:
+Sea \(G : {\cal C} \longrightarrow \mathtt{Set}\) un funtor covariante. Fijado \(A \in obj({\cal C})}\), tenemos una
+biyección entre las transformaciones naturales del funtor \(Hom(A,-)\) a
+\(G\) y los elementos del conjunto \(G(A)\):
 </p>
 
-<ul class="org-ul">
-<li><a href="https://es.wikipedia.org/wiki/Lema_de_escisi%C3%B3n">Lema de escisión</a></li>
-<li><a href="https://es.wikipedia.org/wiki/Compleci%C3%B3n_(%C3%A1lgebra)">Compleción (Álgebra)</a></li>
-<li><a href="https://es.wikipedia.org/wiki/Lema_de_la_serpiente">Lema de la serpiente</a></li>
-<li><a href="https://es.wikipedia.org/wiki/M%C3%B3nada_(teor%C3%ADa_de_categor%C3%ADas)">Mónada (teoría de categorías)</a></li>
-<li><a href="https://es.wikipedia.org/wiki/Funtor_Tor">Funtor Tor</a></li>
-<li><a href="https://es.wikipedia.org/wiki/M%C3%B3dulo_simple">Módulo simple</a></li>
-</ul>
+<p>
+\[
+y : Nat(Hom_{\cal C}(A,-),G) \longrightarrow G(A)
+\]
+</p>
+
+<p>
+Que viene dada por \(y(\tau) = \tau_A(1_A)\), la imagen de la identidad por la
+transformación natural.
+</p>
+</div>
+
+<div id="outline-container-org9979d5b" class="outline-3">
+<h3 id="org9979d5b">Demostración</h3>
+<div class="outline-text-3" id="text-org9979d5b">
+<p>
+Dado cualquier \(p\) crearemos la única transformación natural que cumple
+\(\eta_A(1_A) = p\). Por definición de transformación natural, sabemos que debe
+cumplir el siguiente diagrama conmutativo:
+</p>
+
+
+<div class="figure">
+<p><img src="https://github.com/M42/m42.github.io/blob/source/images/yonedaproof1.jpeg" alt="yonedaproof1.jpeg" />
+</p>
+</div>
+
+<p>
+Lo que deja determinado a cualquier \(\eta_B(f)\), y por tanto a toda la función:
+</p>
+
+<p>
+\[\eta_B(f) = \eta_B(f\circ id) = Gf(\eta_A(id_A)) = Gf(p) \]
+</p>
+
+<p>
+Nos falta comprobar que la función así construida es de hecho una 
+transformación natural. Es decir, que cumple el siguiente diagrama
+conmutativo:
+</p>
+
+
+<div class="figure">
+<p><img src="https://github.com/M42/m42.github.io/blob/source/images/yonedaproof2.jpeg" alt="yonedaproof2.jpeg" />
+</p>
+</div>
+
+<p>
+Y de hecho, dado cualquier elemento \(f \in Hom(A,B)\) tenemos:
+</p>
+
+<p>
+\[Gg\circ \eta(f) = Gg \circ Gf(p) = G(g\circ f)(p) = \eta(g\circ f)\]
+</p>
+</div>
+</div>
+</div>
 
 </div>
 </div>
     <div>
       <div class="post-meta">
-        <span title="post date" class="post-info">2016-10-29</span>
-        <span title="last modification date" class="post-info">2016-10-29</span>
-        <span title="tags" class="post-info"><a href="/tags/libre/">libre</a>, <a href="/tags/math/">math</a></span>
+        <span title="post date" class="post-info">2016-02-17</span>
+        <span title="last modification date" class="post-info">2017-02-17</span>
+        <span title="tags" class="post-info"><a href="/tags/category-theory/">category theory</a>, <a href="/tags/math/">math</a>, <a href="/tags/haskell/">haskell</a></span>
         <span title="author" class="post-info">Mario Román</span>
       </div>
       <script src="//code.jquery.com/jquery-latest.min.js"></script>

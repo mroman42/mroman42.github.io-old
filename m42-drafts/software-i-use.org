@@ -1,0 +1,27 @@
+#+TITLE:       Software I use
+#+AUTHOR:      Mario Román
+#+EMAIL:       mromang08@gmail.com
+#+DATE:        2016-10-02 Sun
+#+URI:         /blog/%y/%m/%d/matematicas-en-emacs/
+#+KEYWORDS:    
+#+TAGS:        software
+#+LANGUAGE:    en
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+DESCRIPTION: Where I list all the software I am using
+
+
+** System
+- *Arch Linux*. I used *Ubuntu* for the last three years.
+- *Gnome3*
+- *Redshift*
+
+** Programming
+- *Emacs*
+- *Micro*
+- *Bash*
+
+** Other software
+- *Firefox*
+- *Zotero*
+- *Anki*, software specialized in spaced repetition.
+

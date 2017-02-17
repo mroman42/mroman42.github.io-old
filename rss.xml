@@ -4,10 +4,17 @@
     <title>Mario Román</title>
     <link>http://m42.github.io/</link>
     <description>M42 - mromang08@gmail.com</description>
-    <pubDate>Mon, 26 Dec 2016 18:26:19 CET</pubDate>
-    <lastBuildDate>Mon, 26 Dec 2016 18:26:19 CET</lastBuildDate>
+    <pubDate>Fri, 17 Feb 2017 18:27:58 CET</pubDate>
+    <lastBuildDate>Fri, 17 Feb 2017 18:27:58 CET</lastBuildDate>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>Org-page static site generator (https://github.com/kelvinh/org-page)</generator>
+    <item>
+      <title>Yoneda Lemma</title>
+      <link>http://m42.github.io/blog/2016/02/17/yoneda-lemma</link>
+      <description><![CDATA[An elementary proof of the Yoneda Lemma]]></description>
+      <pubDate>2017-02-17</pubDate>
+      <guid>http://m42.github.io/blog/2016/02/17/yoneda-lemma</guid>
+    </item>
     <item>
       <title>Mónadas</title>
       <link>http://m42.github.io/blog/2016/12/24/monadas/</link>
