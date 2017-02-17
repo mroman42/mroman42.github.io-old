@@ -1,0 +1,58 @@
+#+TITLE:       Formal proofs on tree traversals 
+#+AUTHOR:      Mario Román
+#+EMAIL:       mromang08@gmail.com
+#+DATE:        2016-10-29 Sat
+#+URI:         /blog/%y/%m/%d/unbalanced-heaps
+#+KEYWORDS:    
+#+TAGS:        data structures, math, agda
+#+LANGUAGE:    en
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+DESCRIPTION: Using Agda and Coq to prove small theorems on binary trees
+
+** Introduction
+
+** Definitions
+We use the traditional definition of a tree from functional programming.
+Given a type =A=, we have a =Tree A=, whose constructors are the empty tree, =Nil=
+and a node with two subtrees, =Node=:
+   
+#+BEGIN_SRC
+  data Tree (A : Set) : Set where
+    Nil : Tree A
+    Node : A → Tree A → Tree A → Tree A
+#+END_SRC
+
+A tree can be traversed in preorder, inorder and postorder. The definitions are
+similar and use recursivity:
+
+#+BEGIN_SRC
+  preord : {A : Set} → Tree A → List A
+  preord Nil = []
+  preord (Node a lt rt) = a ∷ (preord lt) ++ (preord rt)
+  
+  inord : {A : Set} → Tree A → List A
+  inord Nil = []
+  inord (Node a lt rt) = (inord lt) ++ [ a ] ++ (inord rt)
+
+  posord : {A : Set} → Tree A → List A
+  posord Nil = []
+  posord (Node a lt rt) = (posord lt) ++ (posord rt) ++ [ a ]
+#+END_SRC
+
+And we can relate those traversals using reversion of lists and reflection of
+trees. The reflection of a three exchanges the left and right subtrees and reflects
+both:
+
+#+BEGIN_SRC
+  reflect : {A : Set} → Tree A → Tree A
+  reflect Nil = Nil
+  reflect (Node a lt rt) = Node a (reflect rt) (reflect lt)
+
+  inv : {A : Set} → List A → List A
+  inv [] = []
+  inv (x ∷ xs) = (inv xs) ++ [ x ]
+#+END_SRC
+
+** The theorems
+
+** Proving with Agda and Coq
