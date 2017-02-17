@@ -1,5 +1,0 @@
-#+TITLE: About
-
-I also write in [[http://tux.ugr.es/dgiim/][LibreIM]] and [[http://codual.github.io/][Codual]].
-
-All the articles in this page are licensed in [[https://creativecommons.org/licenses/by-sa/2.0/][Creative Commons BY-SA 2.0]] unless otherwise specified.
