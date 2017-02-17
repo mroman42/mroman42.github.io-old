@@ -16,8 +16,6 @@
         <p>M42 - mromang08@gmail.com</p>
         <ul>
           <li><a href="/blog/">Blog</a></li>
-          <li><a href="/images/">Images</a></li>
-          <li><a href="/m42-drafts/">M42-Drafts</a></li>
           <li><a href="/tags/">Tags</a></li>
           <li><a href="/about/">About</a></li>
           <li><a href="https://github.com/m42">GitHub</a></li>
@@ -44,9 +42,9 @@ problem?
 </p>
 </blockquote>
 
-<div id="outline-container-orgc9c3309" class="outline-2">
-<h2 id="orgc9c3309">Prerrequisitos</h2>
-<div class="outline-text-2" id="text-orgc9c3309">
+<div id="outline-container-org49e8573" class="outline-2">
+<h2 id="org49e8573">Prerrequisitos</h2>
+<div class="outline-text-2" id="text-org49e8573">
 <p>
 Este artículo requiere un conocimiento previo de Haskell, o al menos, de
 otro lenguaje de programación funcional. Puedes consultar nuestra
@@ -64,11 +62,11 @@ leer sobre ese tema, puedes consultar nuestros apuntes de
 </div>
 </div>
 
-<div id="outline-container-org8fd0601" class="outline-2">
-<h2 id="org8fd0601">Motivación para las mónadas</h2>
-<div class="outline-text-2" id="text-org8fd0601">
-</div><div id="outline-container-org5b0e9ea" class="outline-3">
-<h3 id="mónadas-en-haskell"><a id="org5b0e9ea"></a>Mónadas en Haskell</h3>
+<div id="outline-container-org1be786b" class="outline-2">
+<h2 id="org1be786b">Motivación para las mónadas</h2>
+<div class="outline-text-2" id="text-org1be786b">
+</div><div id="outline-container-orgf2db10d" class="outline-3">
+<h3 id="mónadas-en-haskell"><a id="orgf2db10d"></a>Mónadas en Haskell</h3>
 <div class="outline-text-3" id="text-mónadas-en-haskell">
 <p>
 Imaginemos que necesitamos controlar cuando una función interna devuelve
@@ -98,9 +96,9 @@ funcional.
 </div>
 </div>
 
-<div id="outline-container-org4a5af1f" class="outline-3">
-<h3 id="org4a5af1f">Calculando raíces cuadradas</h3>
-<div class="outline-text-3" id="text-org4a5af1f">
+<div id="outline-container-org5ea03fd" class="outline-3">
+<h3 id="org5ea03fd">Calculando raíces cuadradas</h3>
+<div class="outline-text-3" id="text-org5ea03fd">
 <p>
 Por ejemplo, supongamos que intentamos sacar raíces cuadradas en los
 reales usando el <a href="https://en.wikipedia.org/wiki/Integer_square_root#Algorithm">método de Newton</a>. Si intentamos calcular \(\sqrt{n}\), 
@@ -179,9 +177,9 @@ Las soluciones de 1.0x² + -5.0x + 6.0 son (3.0,2.0)
 </div>
 </div>
 
-<div id="outline-container-org2e75c2d" class="outline-3">
-<h3 id="org2e75c2d">Controlando los errores</h3>
-<div class="outline-text-3" id="text-org2e75c2d">
+<div id="outline-container-org00fc9fa" class="outline-3">
+<h3 id="org00fc9fa">Controlando los errores</h3>
+<div class="outline-text-3" id="text-org00fc9fa">
 <p>
 Pero ¿qué ocurre cuando intentamos calcular la raíz cuadrada de un
 número no positivo? Este método no la encuentra, por lo que debería
@@ -256,9 +254,9 @@ Just 5.732143
 </div>
 </div>
 
-<div id="outline-container-org2a374e5" class="outline-3">
-<h3 id="org2a374e5">La mónada Maybe</h3>
-<div class="outline-text-3" id="text-org2a374e5">
+<div id="outline-container-org9ff6883" class="outline-3">
+<h3 id="org9ff6883">La mónada Maybe</h3>
+<div class="outline-text-3" id="text-org9ff6883">
 <p>
 Esta idea para simplificar el tratamiento de errores, realizada
 correctamente, es lo que nos va a proporcionar la estructura de mónada.
@@ -294,9 +292,9 @@ return 3 &gt;&gt;= sqroot' &gt;&gt;= sqroot' -- Equivalente a lo anterior
 </div>
 </div>
 
-<div id="outline-container-org915599a" class="outline-3">
-<h3 id="org915599a">Notación do</h3>
-<div class="outline-text-3" id="text-org915599a">
+<div id="outline-container-org8bca208" class="outline-3">
+<h3 id="org8bca208">Notación do</h3>
+<div class="outline-text-3" id="text-org8bca208">
 <p>
 Las mónadas definen las funciones anteriores y muchas más que no vamos a
 tratar ahora mismo, pero como resultado, nos acaban ofreciendo la
@@ -329,12 +327,12 @@ puramente funcionales. Existen críticas al uso de esta notación. [1]
 </div>
 </div>
 
-<div id="outline-container-orgb28bbf4" class="outline-2">
-<h2 id="orgb28bbf4">Mónadas en programación funcional</h2>
-<div class="outline-text-2" id="text-orgb28bbf4">
-</div><div id="outline-container-orgf798735" class="outline-3">
-<h3 id="orgf798735">Mónadas como clase de tipos</h3>
-<div class="outline-text-3" id="text-orgf798735">
+<div id="outline-container-org733fd10" class="outline-2">
+<h2 id="org733fd10">Mónadas en programación funcional</h2>
+<div class="outline-text-2" id="text-org733fd10">
+</div><div id="outline-container-orge0595e4" class="outline-3">
+<h3 id="orge0595e4">Mónadas como clase de tipos</h3>
+<div class="outline-text-3" id="text-orge0595e4">
 <p>
 Las mónadas en Haskell están definidas como una clase de tipos teniendo:
 </p>
@@ -390,9 +388,9 @@ en:
 </div>
 </div>
 
-<div id="outline-container-org6197fe3" class="outline-3">
-<h3 id="org6197fe3">Mónada lista</h3>
-<div class="outline-text-3" id="text-org6197fe3">
+<div id="outline-container-orge45e4bc" class="outline-3">
+<h3 id="orge45e4bc">Mónada lista</h3>
+<div class="outline-text-3" id="text-orge45e4bc">
 <p>
 En las listas, por ejemplo, tenemos como candidato para
 <code>join :: [[a]] -&gt; [a]</code> la concatenación de listas, <code>concat</code>. Nuestro
@@ -438,9 +436,9 @@ rationals = nub rationalsDup
 </div>
 </div>
 
-<div id="outline-container-org2f218c8" class="outline-3">
-<h3 id="org2f218c8">Mónada IO</h3>
-<div class="outline-text-3" id="text-org2f218c8">
+<div id="outline-container-orga97ed5e" class="outline-3">
+<h3 id="orga97ed5e">Mónada IO</h3>
+<div class="outline-text-3" id="text-orga97ed5e">
 <p>
 La mónada IO surge como una solución al problema de implementar efectos
 secundarios (como la lectura o escritura) en un lenguaje puro y de forma
@@ -466,9 +464,9 @@ Pueden leerse más detalles sobre mónada IO y su implementación en:
 </div>
 </div>
 
-<div id="outline-container-org0eae79a" class="outline-3">
-<h3 id="org0eae79a">Mónada estado</h3>
-<div class="outline-text-3" id="text-org0eae79a">
+<div id="outline-container-orge153ba3" class="outline-3">
+<h3 id="orge153ba3">Mónada estado</h3>
+<div class="outline-text-3" id="text-orge153ba3">
 <p>
 En ocasiones necesitamos que nuestras funciones conserven un estado
 además de realizar sus operaciones. Para esos casos existe la mónada
@@ -566,9 +564,9 @@ distribuciones de dados:
 </div>
 </div>
 
-<div id="outline-container-orgda1b0e0" class="outline-2">
-<h2 id="orgda1b0e0">Mónadas en teoría de categorías</h2>
-<div class="outline-text-2" id="text-orgda1b0e0">
+<div id="outline-container-orgdcb62ac" class="outline-2">
+<h2 id="orgdcb62ac">Mónadas en teoría de categorías</h2>
+<div class="outline-text-2" id="text-orgdcb62ac">
 <p>
 Para entender cómo funcionan las <a href="https://es.wikipedia.org/wiki/M%C3%B3nada_(teor%C3%ADa_de_categor%C3%ADas)">mónadas</a>
 en teoría de categorías tenemos que entender dos conceptos: los
@@ -578,9 +576,9 @@ construcción en teoría de categorías.
 </p>
 </div>
 
-<div id="outline-container-orgc003d39" class="outline-3">
-<h3 id="orgc003d39">Categorías monoidales</h3>
-<div class="outline-text-3" id="text-orgc003d39">
+<div id="outline-container-org8b48687" class="outline-3">
+<h3 id="org8b48687">Categorías monoidales</h3>
+<div class="outline-text-3" id="text-org8b48687">
 <p>
 Simplificando, una categoría monoidal es aquella donde, dados dos
 objetos \(A,B\), tenemos un objeto <i>"producto tensor"</i> de ambos,
@@ -602,9 +600,9 @@ cumpliendo propiedades como:
 </div>
 </div>
 
-<div id="outline-container-orga71c270" class="outline-3">
-<h3 id="orga71c270">Ejemplos de categorías monoidales</h3>
-<div class="outline-text-3" id="text-orga71c270">
+<div id="outline-container-org1b51472" class="outline-3">
+<h3 id="org1b51472">Ejemplos de categorías monoidales</h3>
+<div class="outline-text-3" id="text-org1b51472">
 <p>
 Los <b>conjuntos</b> con el producto cartesiano y el conjunto de un elemento
 forman ya una categoría monoidal. Puede comprobarse sobre ellos que
@@ -656,9 +654,9 @@ siendo la unidad.
 </div>
 </div>
 
-<div id="outline-container-org8bc8d11" class="outline-3">
-<h3 id="org8bc8d11">Objetos monoide</h3>
-<div class="outline-text-3" id="text-org8bc8d11">
+<div id="outline-container-org66bfeba" class="outline-3">
+<h3 id="org66bfeba">Objetos monoide</h3>
+<div class="outline-text-3" id="text-org66bfeba">
 <p>
 Un objeto \[A\] de una categoría monoidal es objeto monoide cuando puedo
 definir un morfismo desde el objeto identidad hacia él y un morfismo
@@ -687,9 +685,9 @@ corriente.
 </div>
 </div>
 
-<div id="outline-container-orga57ac5a" class="outline-3">
-<h3 id="orga57ac5a">Categorías de endofuntores</h3>
-<div class="outline-text-3" id="text-orga57ac5a">
+<div id="outline-container-org09a52fd" class="outline-3">
+<h3 id="org09a52fd">Categorías de endofuntores</h3>
+<div class="outline-text-3" id="text-org09a52fd">
 <p>
 El ejemplo que nos interesa ahora, sin embargo, es el de los
 <b>endofuntores</b> de una categoría. Un <b>funtor</b>, de forma simplificada, es
@@ -719,9 +717,9 @@ morfismo.
 </div>
 </div>
 
-<div id="outline-container-org0fb3c61" class="outline-3">
-<h3 id="org0fb3c61">Mónadas</h3>
-<div class="outline-text-3" id="text-org0fb3c61">
+<div id="outline-container-orgc88cd1a" class="outline-3">
+<h3 id="orgc88cd1a">Mónadas</h3>
+<div class="outline-text-3" id="text-orgc88cd1a">
 <p>
 Pues bien, una mónada es un objeto monoide en la categoría de los
 endofuntores con la composición como producto tensor. Esto quiere decir
@@ -751,9 +749,9 @@ que se aplica el funtor, lo que tenemos son familias de morfismos:
 </div>
 </div>
 
-<div id="outline-container-org58ac0ca" class="outline-3">
-<h3 id="org58ac0ca">Una categoría para la programación funcional</h3>
-<div class="outline-text-3" id="text-org58ac0ca">
+<div id="outline-container-org7865904" class="outline-3">
+<h3 id="org7865904">Una categoría para la programación funcional</h3>
+<div class="outline-text-3" id="text-org7865904">
 <p>
 Algunos sistemas de tipos, con las funciones entre ellos <code>A -&gt; B</code> como
 morfismos, forman una categoría[3]. No es el caso de Haskell, en el que,
@@ -785,9 +783,9 @@ Haskell.
 </div>
 </div>
 
-<div id="outline-container-orgf9d2de0" class="outline-3">
-<h3 id="orgf9d2de0">Monoides en la categoría de los endofuntores</h3>
-<div class="outline-text-3" id="text-orgf9d2de0">
+<div id="outline-container-org7e7cdfb" class="outline-3">
+<h3 id="org7e7cdfb">Monoides en la categoría de los endofuntores</h3>
+<div class="outline-text-3" id="text-org7e7cdfb">
 <p>
 Entonces, si los funtores <code>f :: * -&gt; *</code> son endofuntores en alguna
 categoría, tiene sentido cuestionarse cuáles de ellos son monoides.
@@ -829,9 +827,9 @@ puede verse <a href="http://blog.sigfpe.com/2008/11/from-monoids-to-monads.html"
 </div>
 </div>
 
-<div id="outline-container-orgd7110cd" class="outline-2">
-<h2 id="orgd7110cd">Y más</h2>
-<div class="outline-text-2" id="text-orgd7110cd">
+<div id="outline-container-org6a27a45" class="outline-2">
+<h2 id="org6a27a45">Y más</h2>
+<div class="outline-text-2" id="text-org6a27a45">
 <p>
 Además de las enunciadas en este post, existen más otros temas
 relevantes en relación a las mónadas, tanto en programación funcional
@@ -849,9 +847,9 @@ relacionadas con la teoría de categorías.</li>
 </div>
 </div>
 
-<div id="outline-container-org59f59db" class="outline-2">
-<h2 id="org59f59db">Referencias</h2>
-<div class="outline-text-2" id="text-org59f59db">
+<div id="outline-container-org028b2b0" class="outline-2">
+<h2 id="org028b2b0">Referencias</h2>
+<div class="outline-text-2" id="text-org028b2b0">
 <p>
 [1] Peligros de la notación do.
     <a href="https://wiki.haskell.org/Do_notation_considered_harmful">Do notation considered harmful</a>
@@ -894,7 +892,7 @@ relacionadas con la teoría de categorías.</li>
       <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script src="/media/js/main.js"></script>
       <div class="footer">
-        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.x (<a href="http://orgmode.org">Org mode</a> 9.x)</p>
+        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.x (<a href="http://orgmode.org">Org mode</a> 9.x)</p>
         <p>
           Copyright &copy; 2012 - <span id="footerYear"></span> <a href="mailto:mromang08 &lt;at&gt; gmail &lt;dot&gt; com">Mario Román</a>
           &nbsp;&nbsp;-&nbsp;&nbsp;
