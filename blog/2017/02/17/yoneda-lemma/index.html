@@ -32,9 +32,9 @@
 <div class="post">
 <h1>Lema de Yoneda</h1>
 
-<div id="outline-container-org5f6ad7d" class="outline-2">
-<h2 id="org5f6ad7d">Lema de Yoneda</h2>
-<div class="outline-text-2" id="text-org5f6ad7d">
+<div id="outline-container-org54efc6a" class="outline-2">
+<h2 id="org54efc6a">Lema de Yoneda</h2>
+<div class="outline-text-2" id="text-org54efc6a">
 <p>
 Sea \(G : {\cal C} \longrightarrow \mathtt{Set}\) un funtor covariante. Fijado \(A \in obj({\cal C})\), tenemos una
 biyección entre las transformaciones naturales del funtor \(Hom(A,-)\) a
@@ -53,9 +53,9 @@ transformación natural.
 </p>
 </div>
 
-<div id="outline-container-orgff5a804" class="outline-3">
-<h3 id="orgff5a804">Demostración</h3>
-<div class="outline-text-3" id="text-orgff5a804">
+<div id="outline-container-orgf80953d" class="outline-3">
+<h3 id="orgf80953d">Demostración</h3>
+<div class="outline-text-3" id="text-orgf80953d">
 <p>
 Dado cualquier \(p\) crearemos la única transformación natural que cumple
 \(\eta_A(1_A) = p\). Por definición de transformación natural, sabemos que debe
@@ -99,9 +99,30 @@ Y de hecho, dado cualquier elemento \(f \in Hom(A,B)\) tenemos:
 </div>
 </div>
 
-<div id="outline-container-orgac6b1c9" class="outline-2">
-<h2 id="orgac6b1c9">Referencias y enlaces</h2>
-<div class="outline-text-2" id="text-orgac6b1c9">
+<div id="outline-container-org2e43a4f" class="outline-2">
+<h2 id="org2e43a4f">Lema de Yoneda (caso contravariante)</h2>
+<div class="outline-text-2" id="text-org2e43a4f">
+<p>
+Si aplicamos Yoneda sobre \(\mathcal{C}^{op}\), dado \(G : {\cal C} \longrightarrow \mathtt{Set}\) <b>contravariante</b>
+y fijado \(A \in obj({\cal C})\); existe una biyección entre las transformaciones naturales
+del funtor \(Hom(-,A)\) a \(G\) y los elementos del conjunto \(G(A)\):
+</p>
+
+<p>
+\[
+y : Nat(Hom_{\cal C}(-,A),G) \longrightarrow G(A)
+\]
+</p>
+
+<p>
+Que viene de nuevo dada por \(y(\tau) = \tau_A(1_A)\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7a37df5" class="outline-2">
+<h2 id="org7a37df5">Referencias y enlaces</h2>
+<div class="outline-text-2" id="text-org7a37df5">
 <p>
 [1] J. Rotman, An Introduction to Homological Algebra.
 </p>
@@ -123,7 +144,7 @@ Y de hecho, dado cualquier elemento \(f \in Hom(A,B)\) tenemos:
     <div>
       <div class="post-meta">
         <span title="post date" class="post-info">2017-02-17</span>
-        <span title="last modification date" class="post-info">2017-02-17</span>
+        <span title="last modification date" class="post-info">2017-02-18</span>
         <span title="tags" class="post-info"><a href="/tags/category-theory/">category theory</a>, <a href="/tags/math/">math</a>, <a href="/tags/haskell/">haskell</a></span>
         <span title="author" class="post-info">Mario Román</span>
       </div>
