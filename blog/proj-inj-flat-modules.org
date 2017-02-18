@@ -20,17 +20,15 @@ An R-module $D$ is:
 We know that $Hom(D,-)$ and $Hom(-,D)$ are left-exact and that
 $D\otimes -$ is right-exact; so for them to be exact, we only need:
 
- - A module $D$ is *projective* when every $f : B \longrightarrow C$ surjective induces
-   $(f\circ\_) :Hom(D,B) \longrightarrow Hom(D,C)$ surjective.
+- A module $D$ is *projective* when every $f : B \longrightarrow C$ surjective induces
+  $(f\circ\_) :Hom(D,B) \longrightarrow Hom(D,C)$ surjective.
+  #+attr_html: :width 300px
+  https://raw.githubusercontent.com/M42/m42.github.io/images/projective.jpeg
 
-   #+attr_html: :width 500px
-   https://raw.githubusercontent.com/M42/m42.github.io/images/projective.jpeg
-
- - A module $D$ is *injective* when $f : A \longrightarrow B$ surjective induces
-   $(\_\circ f) : Hom(B,D) \longrightarrow Hom(A,D)$ surjective.
-
-   #+attr_html: :width 500px
-   https://raw.githubusercontent.com/M42/m42.github.io/images/injective.jpeg
+- A module $D$ is *injective* when $f : A \longrightarrow B$ surjective induces
+  $(\_\circ f) : Hom(B,D) \longrightarrow Hom(A,D)$ surjective.
+  #+attr_html: :width 300px
+  https://raw.githubusercontent.com/M42/m42.github.io/images/injective.jpeg
    
- - A module $D$ is *flat* when $f : A \longrightarrow B$ injective induces 
-   $f' : D\otimes A \longrightarrow D \otimes B$ injective.
+- A module $D$ is *flat* when $f : A \longrightarrow B$ injective induces 
+  $f' : D\otimes A \longrightarrow D \otimes B$ injective.
