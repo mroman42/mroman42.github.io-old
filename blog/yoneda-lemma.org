@@ -44,6 +44,17 @@ Y de hecho, dado cualquier elemento $f \in Hom(A,B)$ tenemos:
 
 \[Gg\circ \eta(f) = Gg \circ Gf(p) = G(g\circ f)(p) = \eta(g\circ f)\]
 
+** Lema de Yoneda (caso contravariante)
+Si aplicamos Yoneda sobre $\mathcal{C}^{op}$, dado $G : {\cal C} \longrightarrow \mathtt{Set}$ *contravariante*
+y fijado $A \in obj({\cal C})$; existe una biyección entre las transformaciones naturales
+del funtor $Hom(-,A)$ a $G$ y los elementos del conjunto $G(A)$:
+
+\[
+y : Nat(Hom_{\cal C}(-,A),G) \longrightarrow G(A)
+\]
+
+Que viene de nuevo dada por $y(\tau) = \tau_A(1_A)$.
+
 ** Referencias y enlaces
 [1] J. Rotman, An Introduction to Homological Algebra.
 
