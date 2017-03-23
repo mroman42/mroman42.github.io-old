@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>Capturando links en org-mode - Mario Román</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Mario Román" />
+    <meta name="description" content="Capturar links en Firefox hacia org-mode, usando org-capture" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="/media/css/main.css" type="text/css">
+    <link rel="stylesheet" href="/media/css/prettify.css" type="text/css">
+  </head>
+  <body class="container">
+    <div>
+      <header class="masthead">
+        <h1 class="masthead-title"><a href="/">Mario Román</a></h1>
+        <p>M42 - mromang08@gmail.com</p>
+        <ul>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/tags/">Tags</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="https://github.com/m42">GitHub</a></li>
+          <li><a href="/rss.xml">RSS</a></li>
+        </ul>
+        <form method="get" id="searchform" action="//www.google.com/search">
+          <input type="text" class="field" name="q" id="s" placeholder="Search">
+          <input type="hidden" name="as_sitesearch" value="m42.github.io">
+        </form>
+      </header>
+    </div>
+
+<div>
+<div class="post">
+<h1>Capturando links en org-mode</h1>
+
+<div id="outline-container-org7286000" class="outline-2">
+<h2 id="org7286000">Capturando links</h2>
+<div class="outline-text-2" id="text-org7286000">
+<p>
+El objetivo de este post es describir el proceso que uso para capturar links
+desde Firefox y almacenarlos en un archivo de org-mode, que puedo usar luego
+para listarlos en el propio navegador.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc17daf1" class="outline-2">
+<h2 id="orgc17daf1">Org-capture</h2>
+<div class="outline-text-2" id="text-orgc17daf1">
+<p>
+La primera parte será activar <code>org-capture</code> y <code>org-protocol</code> en Emacs. <a href="https://www.gnu.org/software/emacs/manual/html_node/org/Capture.html#Capture">org-capture</a>
+puede ser usado también para escribir pequeñas ideas y almacenarlas en ficheros org
+rápidamente; pero, en este caso, lo usaremos sólo para recibir el link desde Firefox.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(require 'org-protocol)
+</pre>
+</div>
+
+<p>
+Lo primero que debemos hacer es definir la plantilla que queremos usar para capturar
+los links. La sintaxis usada se explica en la <a href="https://www.gnu.org/software/emacs/manual/html_node/org/Template-expansion.html#Template-expansion">documentación</a> de org-mode, así como
+las opciones que usa después:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq org-capture-templates
+      (quote (
+	      ("x" "org-protocol" entry (file "~/links.org")
+	       "** %c %?" :kill-buffer t :prepend t))))
+</pre>
+</div>
+
+<p>
+En este caso, guardará los links en un archivo llamado <code>links.org</code> en el directorio
+<code>home</code>. Pueden añadirse <a href="https://www.gnu.org/software/emacs/manual/html_node/org/Template-elements.html#Template-elements">opciones</a> para explicitar en qué punto exacto del archivo
+queremos insertar el link una vez lo capturemos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org883dd8b" class="outline-2">
+<h2 id="org883dd8b">Extensión de firefox</h2>
+<div class="outline-text-2" id="text-org883dd8b">
+<p>
+El uso de <code>org-protocol</code> desde Firefox puede gestionarse más detalladamente usando
+<a href="http://orgmode.org/worg/org-contrib/org-protocol.html#sec-4">marcadores</a> que activen la captura. En nuestro caso, como sólo necesitamos la configuración
+básica, podemos ahorrarnos este trabajo y dejárselo a la extensión <a href="http://chadok.info/firefox-org-capture/">org-capture for Firefox</a>.
+</p>
+
+<p>
+La extensión nos deja elegir en sus opciones si queremos que use una nueva ventana (me
+parece lo más conveniente y además veremos cómo controlarla luego con i3); la letra
+asignada a la plantilla (en nuestro caso hemos usado la <code>x</code> en la configuración
+anterior); y el atajo de teclado para activarla, que por defecto es <code>Ctrl-Alt-r</code>.
+</p>
+
+<p>
+Una vez activemos la extensión, podremos capturar enlaces pulsando el atajo.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgeadc685" class="outline-2">
+<h2 id="orgeadc685">Cerrando ventanas</h2>
+<div class="outline-text-2" id="text-orgeadc685">
+<p>
+Un problema menor al usar esta extensión es que crea ventanas de Emacs que no cierra
+al terminar. Otro problema es que suele crear también un buffer inicial al lado de nuestro
+buffer de captura. Podemos usar <b>hooks</b> para forzar ese comportamiento:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(add-hook 'org-capture-mode-hook 'delete-other-windows)
+(add-hook 'org-capture-after-finalize-hook 'delete-frame)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgefded8c" class="outline-2">
+<h2 id="orgefded8c">Integrándolo en i3</h2>
+<div class="outline-text-2" id="text-orgefded8c">
+<p>
+Para los usuarios de i3, puede ser útil poder controlar dónde y como se crea la ventana
+de captura de Emacs. Un ejemplo de configuración es la siguiente, que coloca la ventana
+como flotante y en el centro de la pantalla; como si fuera un popup:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">for_window [class="Emacs" title="CAPTURE"] floating enable
+for_window [class="Emacs" title="CAPTURE"] resize set 1880 480
+for_window [class="Emacs" title="CAPTURE"] move position center
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org790f1b0" class="outline-2">
+<h2 id="org790f1b0">Mostrando los links en el navegador</h2>
+<div class="outline-text-2" id="text-org790f1b0">
+<p>
+Para que además los links se muestren en el navegador, pueden usarse también <b>hooks</b> que
+se activen al guardado para exportar a HTML. En este post de <a href="https://rafaelleru.github.io/2017/01/22/to_read_list_emacs/">@rafaelleru</a> se explica el
+proceso en detalle.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgea08a67" class="outline-2">
+<h2 id="orgea08a67">Un detalle sin solucionar</h2>
+<div class="outline-text-2" id="text-orgea08a67">
+<p>
+En la plantilla de captura, me gustaría poder usar además <code>%^g</code>, que crea un pequeño
+diálogo donde insertar tags al link que se está guardando. El problema con esto es que
+hasta que ese diálogo no ha terminado, no se ejecutan los hooks, y el frame no se hace
+único (ni se reposiciona en i3) hasta terminar ese diálogo.
+</p>
+</div>
+</div>
+
+</div>
+</div>
+    <div>
+      <div class="post-meta">
+        <span title="post date" class="post-info">2017-03-23</span>
+        <span title="last modification date" class="post-info">2017-03-23</span>
+        <span title="tags" class="post-info"><a href="/tags/emacs/">emacs</a>, <a href="/tags/org/">org</a></span>
+        <span title="author" class="post-info">Mario Román</span>
+      </div>
+      <script src="//code.jquery.com/jquery-latest.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+      <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="/media/js/main.js"></script>
+      <div class="footer">
+        <p>Generated by <a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.x (<a href="http://orgmode.org">Org mode</a> 9.x)</p>
+        <p>
+          Copyright &copy; 2012 - <span id="footerYear"></span> <a href="mailto:mromang08 &lt;at&gt; gmail &lt;dot&gt; com">Mario Román</a>
+          &nbsp;&nbsp;-&nbsp;&nbsp;
+          Powered by <a href="https://github.com/kelvinh/org-page" target="_blank">org-page</a>
+          <script type="text/javascript">document.getElementById("footerYear").innerHTML = (new Date()).getFullYear();</script>
+        </p>
+      </div>
+    </div>
+
+  </body>
+</html>

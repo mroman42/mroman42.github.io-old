@@ -4,10 +4,17 @@
     <title>Mario Román</title>
     <link>http://m42.github.io/</link>
     <description>M42 - mromang08@gmail.com</description>
-    <pubDate>Sat, 18 Feb 2017 18:37:31 CET</pubDate>
-    <lastBuildDate>Sat, 18 Feb 2017 18:37:31 CET</lastBuildDate>
+    <pubDate>Thu, 23 Mar 2017 21:13:13 CET</pubDate>
+    <lastBuildDate>Thu, 23 Mar 2017 21:13:13 CET</lastBuildDate>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>Org-page static site generator (https://github.com/kelvinh/org-page)</generator>
+    <item>
+      <title>Capturando links en org-mode</title>
+      <link>http://m42.github.io/blog/2017/03/23/capture-links/</link>
+      <description><![CDATA[Capturar links en Firefox hacia org-mode, usando org-capture]]></description>
+      <pubDate>2017-03-23</pubDate>
+      <guid>http://m42.github.io/blog/2017/03/23/capture-links/</guid>
+    </item>
     <item>
       <title>Projective, Injective and Flat Modules</title>
       <link>http://m42.github.io/blog/2017/02/18/proj-inj-flat-modules</link>
