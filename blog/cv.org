@@ -1,0 +1,80 @@
+#+TITLE:       Curriculum Vitae
+#+AUTHOR:      Mario Román
+#+EMAIL:       mromang08@gmail.com
+#+DATE:        2017-04-08 Sat
+#+URI:         /blog/%y/%m/%d/cv/
+#+KEYWORDS:    
+#+TAGS:        
+#+LANGUAGE:    es
+#+OPTIONS:     H:3 num:nil toc:nil \n:nil ::t |:t ^:nil -:nil f:t *:t <:t
+#+DESCRIPTION: An extensive summary of my education
+
+** Education
+*** Bachelor degree in Mathematics (University of Granada)           :2018:
+*** Bachelor degree in Computer Science (University of Granada)      :2018:
+**** Exchange Student at the University of Milan                    :2016:
+
+
+** Awards
+*** International Mathematical Olympiad                              :2012:
+Honourable mention at the 2013 International Mathematical Olympiad
+(Mar del Plata, Argentina).
+
+**** National Gold Medal                                            :2012:
+**** National Silver Medal                                          :2012:
+**** Honourable mention at the Iberoamerican Mathematical Olympiad  :2012:
+
+
+** Conferences & courses
+*** Lambda World                                                     :2016:
+*** ESSLLI                                                           :2015:
+*** Data science and big data, IUA                                   :2014:
+
+** Programming
+*** Programming projects
+**** Mikrokosmos                                                    :2015:
+**** GranaSAT Client                                                :2014:
+**** My github page (github.com/m42)
+
+*** Programming languages
+**** Haskell
+**** C++
+*** Software
+**** GNU/Linux
+**** Emacs
+**** LaTeX
+
+** Mathematical projects
+*** Koszul pairs and its applications. Homology theory               :2016:
+
+** Divulgative projects
+*** LibreIM                                                          :2014:
+**** LibreIM blog
+**** LibreIM seminars
+***** "Perder el miedo a Emacs"                                    :2016:
+***** "Esenciales para Informática y Matemáticas: latex, git"      :2016:
+***** "Teoría de tipos"                                            :2016:
+***** "Fundamentos de teoría de categorías"                        :2015:
+***** "El producto tensor"                                         :2015:
+***** "Computabilidad y cálculo lambda"                            :2014:
+***** "Tipos, teoremas y demostraciones por ordenador"             :2014:
+***** "El isomorfismo de Curry-Howard"                             :2014:
+***** "Introducción a la teoría de categorías"                     :2014:
+**** LibreIM overflow
+
+** Languages
+*** Spanish, native speaker
+*** English
+**** C1, Cambridge First certificate
+*** Italian
+
+** Contact
+*** Email address
+**** mromang08@gmail.com
+**** mromang08@correo.ugr.es
+
+*** Github
+**** github.com/m42
+
+*** LinkedIn
+**** linkedin.com/in/mario-roman
