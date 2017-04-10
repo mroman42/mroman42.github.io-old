@@ -14,7 +14,6 @@
 *** Bachelor degree in Computer Science (University of Granada)      :2018:
 **** Exchange Student at the University of Milan                    :2016:
 
-
 ** Awards
 *** International Mathematical Olympiad                              :2012:
 Honourable mention at the 2013 International Mathematical Olympiad
@@ -23,7 +22,6 @@ Honourable mention at the 2013 International Mathematical Olympiad
 **** National Gold Medal                                            :2012:
 **** National Silver Medal                                          :2012:
 **** Honourable mention at the Iberoamerican Mathematical Olympiad  :2012:
-
 
 ** Conferences & courses
 *** Lambda World                                                     :2016:
