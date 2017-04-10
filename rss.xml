@@ -4,16 +4,23 @@
     <title>Mario Román</title>
     <link>http://m42.github.io/</link>
     <description>M42 - mromang08@gmail.com</description>
-    <pubDate>Thu, 23 Mar 2017 21:13:13 CET</pubDate>
-    <lastBuildDate>Thu, 23 Mar 2017 21:13:13 CET</lastBuildDate>
+    <pubDate>Mon, 10 Apr 2017 22:56:15 CEST</pubDate>
+    <lastBuildDate>Mon, 10 Apr 2017 22:56:15 CEST</lastBuildDate>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>Org-page static site generator (https://github.com/kelvinh/org-page)</generator>
     <item>
       <title>Capturando links en org-mode</title>
       <link>http://m42.github.io/blog/2017/03/23/capture-links/</link>
       <description><![CDATA[Capturar links en Firefox hacia org-mode, usando org-capture]]></description>
-      <pubDate>2017-03-23</pubDate>
+      <pubDate>2017-04-10</pubDate>
       <guid>http://m42.github.io/blog/2017/03/23/capture-links/</guid>
+    </item>
+    <item>
+      <title>Curriculum Vitae</title>
+      <link>http://m42.github.io/blog/2017/04/08/cv/</link>
+      <description><![CDATA[An extensive summary of my education]]></description>
+      <pubDate>2017-04-10</pubDate>
+      <guid>http://m42.github.io/blog/2017/04/08/cv/</guid>
     </item>
     <item>
       <title>Projective, Injective and Flat Modules</title>
@@ -70,13 +77,6 @@
       <description><![CDATA[Una descripción informal de la inducción estructural]]></description>
       <pubDate>2016-10-14</pubDate>
       <guid>http://m42.github.io/blog/2015/03/14/induccion-estructural</guid>
-    </item>
-    <item>
-      <title>Teoría de tipos</title>
-      <link>http://m42.github.io/blog/2016/01/08/teoría-de-tipos</link>
-      <description><![CDATA[Enlaces de introducción a teoría de tipos]]></description>
-      <pubDate>2016-10-14</pubDate>
-      <guid>http://m42.github.io/blog/2016/01/08/teoría-de-tipos</guid>
     </item>
   </channel>
 </rss>
