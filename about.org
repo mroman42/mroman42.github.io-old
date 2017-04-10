@@ -1,5 +1,13 @@
 #+TITLE: About
 
-I also write in [[http://tux.ugr.es/dgiim/][LibreIM]] and [[http://codual.github.io/][Codual]].
+Hi! I'm *Mario Román*. I study Mathematics and Computer science in
+Granada. I also write in [[http://tux.ugr.es/dgiim/][LibreIM]].
 
-All the articles in this page are licensed in [[https://creativecommons.org/licenses/by-sa/2.0/][Creative Commons BY-SA 2.0]] unless otherwise specified.
+  - GitHub: [[https://github.com/M42][@M42]].
+  - CV: [[https://m42.github.io/friggeri-cv-a4/cv.pdf][My CV on Github pages]].
+  - Extended CV: [[https://m42.github.io/blog/2017/04/08/cv/][A complete CV on this blog]].
+  - Telegram: [[https://telegram.me/mroman42][@mroman42]].
+  - Email: [[mailto:mromang08@gmail.com][mromang08@gmail.com]].
+
+All the articles in this page are licensed in [[https://creativecommons.org/licenses/by-sa/2.0/][Creative Commons BY-SA 2.0]]
+unless otherwise specified.
