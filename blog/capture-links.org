@@ -11,8 +11,8 @@
 
 ** Capturando links
 El objetivo de este post es describir el proceso que uso para capturar links
-desde Firefox y almacenarlos en un archivo de org-mode, que puedo usar luego
-para listarlos en el propio navegador.
+desde Firefox y almacenarlos en un archivo de org-mode, que puede leerse luego
+desde el propio navegador.
 
 ** Org-capture
 La primera parte será activar =org-capture= y =org-protocol= en Emacs. [[https://www.gnu.org/software/emacs/manual/html_node/org/Capture.html#Capture][org-capture]]
@@ -53,7 +53,7 @@ Una vez activemos la extensión, podremos capturar enlaces pulsando el atajo.
 ** Cerrando ventanas
 Un problema menor al usar esta extensión es que crea ventanas de Emacs que no cierra
 al terminar. Otro problema es que suele crear también un buffer inicial al lado de nuestro
-buffer de captura. Podemos usar *hooks* para forzar ese comportamiento:
+buffer de captura. Podemos usar *hooks* para forzarlo a corregir ese comportamiento:
 
 #+BEGIN_SRC emacs-lisp
   (add-hook 'org-capture-mode-hook 'delete-other-windows)
@@ -61,7 +61,7 @@ buffer de captura. Podemos usar *hooks* para forzar ese comportamiento:
 #+END_SRC
 
 ** Integrándolo en i3
-Para los usuarios de i3, puede ser útil poder controlar dónde y como se crea la ventana
+Para los usuarios de i3, puede ser útil poder controlar dónde y cómo se crea la ventana
 de captura de Emacs. Un ejemplo de configuración es la siguiente, que coloca la ventana
 como flotante y en el centro de la pantalla; como si fuera un popup:
 
@@ -78,6 +78,6 @@ proceso en detalle.
 
 ** Un detalle sin solucionar
 En la plantilla de captura, me gustaría poder usar además =%^g=, que crea un pequeño
-diálogo donde insertar tags al link que se está guardando. El problema con esto es que
-hasta que ese diálogo no ha terminado, no se ejecutan los hooks, y el frame no se hace
-único (ni se reposiciona en i3) hasta terminar ese diálogo.
+diálogo donde insertar tags al link que se está guardando. El problema con esto es que,
+hasta que ese diálogo no ha terminado, no se ejecutan los hooks y el frame no se hace
+único (ni se reposiciona en i3).
