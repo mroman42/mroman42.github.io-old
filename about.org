@@ -1,7 +1,7 @@
 #+TITLE: About
 
 Hi! I'm *Mario Román*. I study Mathematics and Computer science in
-Granada. I also write in [[http://tux.ugr.es/dgiim/][LibreIM]].
+Granada. I also write in [[http://tux.ugr.es/dgiim/][LibreIM]]. 
 
   - GitHub: [[https://github.com/M42][@M42]].
   - CV: [[https://m42.github.io/friggeri-cv-a4/cv.pdf][My CV on Github pages]].
